@@ -5,17 +5,17 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D924EA89-0AE5-F5D7-0BA5-452D3A543F30}</ProjectGuid>
+    <ProjectGuid>{433B362F-E6FA-E309-1DD5-6E1BAB123DB8}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.2f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -53,11 +53,26 @@
     <Reference Include="UnityEngine">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
@@ -65,14 +80,44 @@
     <Reference Include="nunit.framework">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.HoloLens">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityPurchasing/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>D:/Program Files/Unity2017/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets/Scripts/Framework/Common/DOTween/DOTween.dll</HintPath>
@@ -86,9 +131,6 @@
     <Reference Include="DOTween50">
       <HintPath>Assets/Scripts/Framework/Common/DOTween/DOTween50.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>D:/Program Files/Unity2017/Editor/Data/Managed/UnityEditor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:/Program Files/Unity2017/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
@@ -97,42 +139,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Framework\AStar\AStar.cs" />
-    <Compile Include="Assets\Scripts\Framework\AStar\GridCustom.cs" />
-    <Compile Include="Assets\Scripts\Framework\AStar\GridMap2D.cs" />
-    <Compile Include="Assets\Scripts\Framework\Common\GameSystem.cs" />
-    <Compile Include="Assets\Scripts\Framework\Common\Message\Message.cs" />
-    <Compile Include="Assets\Scripts\Framework\Common\Message\MessageCenter.cs" />
-    <Compile Include="Assets\Scripts\Framework\Common\Singleton.cs" />
-    <Compile Include="Assets\Scripts\Framework\Common\SingletonMono.cs" />
-    <Compile Include="Assets\Scripts\Framework\Common\Util.cs" />
-    <Compile Include="Assets\Scripts\Framework\FSM\FSMMachine.cs" />
-    <Compile Include="Assets\Scripts\Framework\FSM\FSMState.cs" />
-    <Compile Include="Assets\Scripts\Framework\Input\InputConst.cs" />
-    <Compile Include="Assets\Scripts\Framework\Input\InputSystem.cs" />
-    <Compile Include="Assets\Scripts\Framework\Input\InputTranslater.cs" />
-    <Compile Include="Assets\Scripts\Framework\Input\KeyboardInput.cs" />
-    <Compile Include="Assets\Scripts\Framework\Input\XboxInput.cs" />
-    <Compile Include="Assets\Scripts\Framework\UI\UIManager.cs" />
-    <Compile Include="Assets\Scripts\Game\Common\GlobalDefines.cs" />
-    <Compile Include="Assets\Scripts\Game\Common\GlobalMono.cs" />
-    <Compile Include="Assets\Scripts\Game\Common\MessageDefines.cs" />
-    <Compile Include="Assets\Scripts\Game\Component\GameCamera.cs" />
-    <Compile Include="Assets\Scripts\Game\Component\MapRenderer.cs" />
-    <Compile Include="Assets\Scripts\Game\Component\MapRes.cs" />
-    <Compile Include="Assets\Scripts\Game\Data\ActionCellData.cs" />
-    <Compile Include="Assets\Scripts\Game\Entity\ActionRange.cs" />
-    <Compile Include="Assets\Scripts\Game\Entity\Character.cs" />
-    <Compile Include="Assets\Scripts\Game\GameLoop.cs" />
-    <Compile Include="Assets\Scripts\Game\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Game\ResourceLoader.cs" />
-    <Compile Include="Assets\Scripts\Game\SLG\SLGCharacterSystem.cs" />
-    <Compile Include="Assets\Scripts\Game\SLG\SLGGame.cs" />
-    <Compile Include="Assets\Scripts\Game\Scene\BaseScene.cs" />
-    <Compile Include="Assets\Scripts\Game\Scene\FightingScene.cs" />
-    <Compile Include="Assets\Scripts\Game\Scene\SceneDefines.cs" />
-    <Compile Include="Assets\Scripts\Game\Scene\StartScene.cs" />
-    <Compile Include="Assets\Test\Test.cs" />
+    <ProjectReference Include="SLGGame.csproj">
+      <Project>{A5676B19-0719-C01F-B0BC-F0D7882B37FD}</Project>
+      <Name>SLGGame</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Editor\AStar\AStarEditor.cs" />
+    <Compile Include="Assets\Editor\AStar\MapEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\RawRes\Shader\Color.shader" />
