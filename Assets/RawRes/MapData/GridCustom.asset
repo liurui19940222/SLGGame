@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdcde50de2df4f4884dc33357696025, type: 3}
+  m_Name: GridCustom
+  m_EditorClassIdentifier: 
+  m_CellInfo:
+  - Type: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+  - Type: 1
+    Color: {r: 1, g: 0, b: 0, a: 1}
+  m_StartPointColor: {r: 0, g: 0.46206903, b: 1, a: 1}
+  m_EndPointColor: {r: 1, g: 1, b: 1, a: 1}
+  m_PathColor: {r: 0.46323532, g: 0.46323532, b: 0.46323532, a: 1}
