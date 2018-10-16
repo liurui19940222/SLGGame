@@ -48,7 +48,7 @@ namespace Game.Scene
 
         protected override void OnSceneUnload()
         {
-            SLG.SLGGame.Instance.UnLoad();
+            SLG.SLGGame.Instance.Unload();
             Debug.Log("Fighting Scene OnSceneUnload");
         }
 

@@ -63,11 +63,11 @@ namespace Framework.Common
         private static List<GameObject> m_DebugGos = new List<GameObject>();
         public static void DebugCube(Vector3 position, Vector3 scale, Color color)
         {
-            //GameObject go = GameObject.Instantiate(ResourceFactory.Instance.LoadAsset<UnityEngine.Object>("Debug/", "Cube")) as GameObject;
-            //m_DebugGos.Add(go);
-            //go.GetComponent<MeshRenderer>().material.color = color;
-            //go.transform.localScale = scale;
-            //go.transform.position = position;
+            GameObject go = GameObject.Instantiate(Resources.Load("Debug/Cube")) as GameObject;
+            m_DebugGos.Add(go);
+            go.GetComponent<MeshRenderer>().material.color = color;
+            go.transform.localScale = scale;
+            go.transform.position = position;
         }
 
         //清除所有Debug生成的对象

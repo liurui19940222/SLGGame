@@ -18,7 +18,7 @@ namespace Framework.FSM
 
         public FSMState(int id) { m_Id = id; }
 
-        public void HandleInput(InputMessage msg) { }
+        public virtual void HandleInput(InputMessage msg) { }
 
         public virtual void OnEnter(IMessage param = null) { }
 

@@ -4,12 +4,13 @@ namespace Framework.Common
 {
     public class IGameSystem
     {
-        public virtual void OnInitialize(IResourceLoader loader) { }
+        public virtual void OnInitialize(IResourceLoader loader, params object[] pars) { }
 
         public virtual void OnUninitialize() { }
 
         public virtual void OnUpdate() { }
 
+        public virtual void OnInputMsg(Message.InputMessage msg) { }
     }
 
     public abstract class IResourceLoader

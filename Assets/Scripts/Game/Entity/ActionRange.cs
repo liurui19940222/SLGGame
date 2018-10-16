@@ -7,27 +7,18 @@ using UnityEngine;
 
 namespace Game.Entity
 {
-    public class ActionRangeCellObj
+    public class ActionRangeCellObj : EntityBase
     {
-        private GameObject gameObject;
-        private Transform transform;
         private Material material;
 
-        public ActionRangeCellObj()
+        public ActionRangeCellObj(Transform parent) : base(ResourceLoader.COMP_PATH, "Cell", parent)
         {
-            gameObject = GameManager.Instance.ResLoader.LoadAndInstantiateAsset(ResourceLoader.COMP_PATH, "Cell");
-            transform = gameObject.transform;
-            material = gameObject.GetComponent<MeshRenderer>().material;
+            material = m_GameObject.GetComponent<MeshRenderer>().material;
         }
 
-        public void SetPos(float x, float z)
+        public void SetWorldPos(Vector3 worldPos)
         {
-            this.transform.position = new Vector3(x, GlobalDefines.RANGE_CELL_Y, z);
-        }
-
-        public void SetParent(Transform parent)
-        {
-            this.transform.SetParent(parent);
+            m_Transform.position = new Vector3(worldPos.x, GlobalDefines.RANGE_CELL_Y, worldPos.z);
         }
 
         public void SetAttacking()
@@ -38,11 +29,6 @@ namespace Game.Entity
         public void SetMoving()
         {
             material.color = new Color(0.0f, 0.0f, 1.0f, 0.6f);
-        }
-
-        public void Release()
-        {
-            GameObject.Destroy(this.gameObject);
         }
     }
 
@@ -61,21 +47,19 @@ namespace Game.Entity
             m_ObjList = new List<ActionRangeCellObj>();
             foreach (ActionCellData cellData in data.MovingList)
             {
-                ActionRangeCellObj obj = new ActionRangeCellObj();
+                ActionRangeCellObj obj = new ActionRangeCellObj(parent);
                 obj.SetMoving();
                 Vector3 pos = map.CellToWorldSpacePos(cellData.X, cellData.Y);
-                obj.SetPos(pos.x, pos.z);
-                obj.SetParent(parent);
+                obj.SetWorldPos(pos);
                 m_ObjList.Add(obj);
             }
 
             foreach (ActionCellData cellData in data.AttackingList)
             {
-                ActionRangeCellObj obj = new ActionRangeCellObj();
+                ActionRangeCellObj obj = new ActionRangeCellObj(parent);
                 obj.SetAttacking();
                 Vector3 pos = map.CellToWorldSpacePos(cellData.X, cellData.Y);
-                obj.SetPos(pos.x, pos.z);
-                obj.SetParent(parent);
+                obj.SetWorldPos(pos);
                 m_ObjList.Add(obj);
             }
         }

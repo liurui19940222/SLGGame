@@ -8,7 +8,7 @@ namespace Framework.AStar
      * GridMap2D plane was defined in X-Z plane of the world space 
      * Its forward direction is from (-x, -z) to (x, z)
      * **/
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Framework/GridMap2D")]
     public class GridMap2D : ScriptableObject
     {
         #region Memebers
@@ -35,6 +35,11 @@ namespace Framework.AStar
         public GridCustom m_GridCustom;
 
         private AStar m_astar;
+
+        public delegate bool DelStateCanMove(int x, int y);
+
+        //the function that check is cell moveable
+        private DelStateCanMove m_stateCanMove;
 
         #endregion
 
@@ -63,6 +68,14 @@ namespace Framework.AStar
                 if (m_astar == null)
                     m_astar = new AStar(this);
                 return m_astar;
+            }
+        }
+
+        public DelStateCanMove StateCanMove
+        {
+            set
+            {
+                m_stateCanMove = value;
             }
         }
 
@@ -102,9 +115,58 @@ namespace Framework.AStar
             this[x, y].Tag = tag;
         }
 
+        public void AddState(int x, int y, int state)
+        {
+            if (!IsAvailable(x, y)) return;
+            this[x, y].State |= state;
+        }
+
+        public void RemoveState(int x, int y, int state)
+        {
+            if (!IsAvailable(x, y)) return;
+            this[x, y].State &= (~state);
+        }
+
+        public bool IsState(int x, int y, int state)
+        {
+            if (!IsAvailable(x, y)) return false;
+            return (this[x, y].State & state) > 0;
+        }
+
+        public void ClearState(int x, int y)
+        {
+            if (!IsAvailable(x, y)) return;
+            this[x, y].State = 0;
+        }
+
+        public bool IsStateMoveable(int x, int y)
+        {
+            if (m_stateCanMove == null)
+                return true;
+            return m_stateCanMove(x, y);
+        }
+
+        public void ClearAllCellsState()
+        {
+            foreach (Cell cell in m_cells)
+            {
+                cell.State = 0;
+            }
+        }
+
         public bool IsAvailable(int x, int y)
         {
             return x >= 0 && x < m_colCount && y >= 0 && y < m_rowCount;
+        }
+
+        public int GetAvailableX(int x)
+        {
+            return Mathf.Max(0, Mathf.Min(x, m_colCount - 1));
+        }
+
+        public int GetAvailableY(int y)
+        {
+            return Mathf.Max(0, Mathf.Min(y, m_rowCount - 1));
         }
 
         /*
@@ -165,6 +227,18 @@ namespace Framework.AStar
         public List<IPoint> FindPath(IPoint from, IPoint to, bool ignoreCorners = false)
         {
             return _AStar.FindPath(from.X, from.Y, to.X, to.Y, 1, ignoreCorners);
+        }
+
+        public Rect GetWorldSpaceRect()
+        {
+            Rect rect = new Rect();
+            Vector3 lbWorldPos = CellToWorldSpacePos(0, 0);
+            Vector3 rtWorldPos = CellToWorldSpacePos(m_colCount - 1, m_rowCount - 1);
+            rect.xMin = lbWorldPos.x - m_cellWidth * 0.5f;
+            rect.xMax = rtWorldPos.x + m_cellWidth * 0.5f;
+            rect.yMin = lbWorldPos.z - m_cellHeight * 0.5f;
+            rect.yMax = rtWorldPos.z + m_cellHeight * 0.5f;
+            return rect;
         }
 
         public Cell this[int x, int y]

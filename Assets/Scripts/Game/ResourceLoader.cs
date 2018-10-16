@@ -9,11 +9,15 @@ namespace Game
 {
     public class ResourceLoader : IResourceLoader
     {
-        public const string UI_PATH = "UI/";
+        public const string UI_PATH = "Prefabs/UI/";
 
-        public const string MAP_PATH = "Map/";
+        public const string MAP_PATH = "Prefabs/Map/";
 
-        public const string COMP_PATH = "Comp/";
+        public const string CHAR_PATH = "Prefabs/Character/";
+
+        public const string COMP_PATH = "Prefabs/Comp/";
+
+        public const string CHAR_CFG_PATH = "Config/Character/";
 
         private Dictionary<string, Object> m_LoadedAssets;
 

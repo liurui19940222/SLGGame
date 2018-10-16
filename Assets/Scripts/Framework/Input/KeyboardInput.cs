@@ -29,15 +29,14 @@ namespace Framework.Input
 
         public override void UpdateInput()
         {
-            KeyTest(KeyCode.UpArrow, EInputWord.DPAD_UP);
-            KeyTest(KeyCode.DownArrow, EInputWord.DPAD_DOWN);
-            KeyTest(KeyCode.LeftArrow, EInputWord.DPAD_LEFT);
-            KeyTest(KeyCode.RightArrow, EInputWord.DPAD_RIGHT);
+            KeyTest(KeyCode.W, EInputWord.DPAD_UP);
+            KeyTest(KeyCode.S, EInputWord.DPAD_DOWN);
+            KeyTest(KeyCode.A, EInputWord.DPAD_LEFT);
+            KeyTest(KeyCode.D, EInputWord.DPAD_RIGHT);
             KeyTest(KeyCode.Escape, EInputWord.BACK);
             KeyTest(KeyCode.Return, EInputWord.START);
-            KeyTest(KeyCode.LeftShift, EInputWord.A);
-            MouseTest(0, EInputWord.RB);
-            MouseTest(1, EInputWord.RT);
+            KeyTest(KeyCode.K, EInputWord.A);
+            KeyTest(KeyCode.J, EInputWord.B);
         }
 
         private void KeyTest(KeyCode keyCode, EInputWord word)

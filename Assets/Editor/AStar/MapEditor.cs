@@ -49,6 +49,9 @@ public class MapEditor : Editor
             map.SetType(m_curSelectedPoint.X, m_curSelectedPoint.Y, (int)s);
         }
 
+        if (m_curOverCellPos != null)
+            EditorGUILayout.LabelField("当前选中", m_curSelectedPoint.ToString());
+
         EditorUtility.SetDirty(map);
     }
 

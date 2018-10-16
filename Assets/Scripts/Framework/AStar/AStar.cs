@@ -80,7 +80,7 @@ namespace Framework.AStar
                 if (m_closeMap.Contains(tempKey))
                     continue;
                 // 检查point是否有效
-                if (!m_map.IsAvailable(point.X, point.Y) || m_map.HasType(point.X, point.Y, obstacle))
+                if (!m_map.IsAvailable(point.X, point.Y) || m_map.HasType(point.X, point.Y, obstacle) || !m_map.IsStateMoveable(point.X, point.Y))
                 {
                     m_closeMap.Add(tempKey);
                     continue;
@@ -180,6 +180,8 @@ namespace Framework.AStar
 
         public int Type;
 
+        public int State;
+
         public string Tag;
     }
 
@@ -188,7 +190,11 @@ namespace Framework.AStar
         public int X { get; set; }
         public int Y { get; set; }
 
-        public IPoint() { }
+        public IPoint()
+        {
+            X = 0;
+            Y = 0;
+        }
 
         public IPoint(int x, int y)
         {
@@ -204,6 +210,26 @@ namespace Framework.AStar
         public static bool operator !=(IPoint a, IPoint b)
         {
             return a.X != b.X || a.Y != b.Y;
+        }
+
+        public static IPoint operator +(IPoint a, IPoint b)
+        {
+            return new IPoint(a.X + b.X, a.Y + b.Y);
+        }
+
+        public static IPoint operator -(IPoint a, IPoint b)
+        {
+            return new IPoint(a.X - b.X, a.Y - b.Y);
+        }
+
+        public static IPoint operator *(IPoint a, IPoint b)
+        {
+            return new IPoint(a.X * b.X, a.Y * b.Y);
+        }
+
+        public static IPoint operator /(IPoint a, IPoint b)
+        {
+            return new IPoint(a.X / b.X, a.Y / b.Y);
         }
 
         public override bool Equals(object obj)

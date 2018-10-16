@@ -1,6 +1,7 @@
 ﻿using Framework.Common;
 using Framework.Common.Message;
 using Framework.FSM;
+using Framework.Input;
 using Framework.UI;
 using Game.Component;
 using Game.Scene;
@@ -20,6 +21,8 @@ namespace Game
 
         private FSMMachine m_SceneFSM;
 
+        private InputSystem m_InputSystem;
+
         public UIManager UIMgr { get { return m_UIManager; } }
 
         public ResourceLoader ResLoader { get { return m_ResLoader; } }
@@ -28,6 +31,7 @@ namespace Game
         {
             m_ResLoader = new ResourceLoader();
             m_UIManager = CreateSystem<UIManager>();
+            m_InputSystem = InputSystem.Instance;
 
             m_SceneFSM = new FSMMachine();
             m_SceneFSM.AddState(new StartScene());
@@ -39,6 +43,7 @@ namespace Game
 
         public void OnUpdate()
         {
+            m_InputSystem.UpdateInput();
             m_UIManager.OnUpdate();
             m_SceneFSM.OnUpdate();
         }
@@ -54,11 +59,21 @@ namespace Game
             m_SceneFSM.SwitchToState(sceneId, param);
         }
 
-        public T CreateSystem<T>() where T : IGameSystem, new()
+        public T CreateSystem<T>(params object[] pars) where T : IGameSystem, new()
         {
             IGameSystem system = new T();
-            system.OnInitialize(m_ResLoader);
+            system.OnInitialize(m_ResLoader, pars);
             return (T)system;
+        }
+
+        public void AddInputEvent(InputSystem.InputDelegate del, int priority)
+        {
+            m_InputSystem.AddInputEvent(del, priority);
+        }
+
+        public void RemoveInputEvent(InputSystem.InputDelegate del)
+        {
+            m_InputSystem.RemoveInputEvent(del);
         }
     }
 }

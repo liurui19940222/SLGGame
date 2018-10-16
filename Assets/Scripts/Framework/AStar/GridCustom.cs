@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Framework.AStar
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Framework/GridCustom")]
     public class GridCustom : ScriptableObject
     {
 

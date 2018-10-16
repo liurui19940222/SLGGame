@@ -21,6 +21,8 @@ namespace Framework.Input
             base.OnInitialize();
             m_InputEvent = new LinkedList<InputEvent>();
             m_InputDevices = new List<IInputDevice>();
+
+            AddInputDevice(new KeyboardInput());
         }
 
         public void AddInputDevice(IInputDevice device)

@@ -28,10 +28,10 @@ namespace Framework.UI
             get { return m_Camera; }
         }
 
-        public override void OnInitialize(IResourceLoader loader)
+        public override void OnInitialize(IResourceLoader loader, params object[] pars)
         {
             m_ResLoader = loader;
-            m_RootGo = GameObject.Instantiate(loader.LoadAsset("UI/", "UIRoot")) as GameObject;
+            m_RootGo = GameObject.Instantiate(loader.LoadAsset("Prefabs/UI/", "UIRoot")) as GameObject;
             m_RootTrans = m_RootGo.transform;
             m_Camera = m_RootGo.GetComponentInChildren<Camera>();
             m_Canvas = m_RootGo.GetComponentInChildren<Canvas>();
