@@ -6,12 +6,12 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="Transparent" "IgnoreProjector"="true" }
+		// Tags { "RenderType"="Transparent" "Queue"="Transparent" "IgnoreProjector"="true" }
+		Tags { "RenderType"="Geometry" }
 		LOD 100
 
 		Pass
 		{
-			Cull Back
 			Blend SrcAlpha OneMinusSrcAlpha
 			CGPROGRAM
 			#pragma vertex vert
@@ -30,7 +30,6 @@
 			struct v2f
 			{
 				float2 uv : TEXCOORD0;
-				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
 			};
 
@@ -38,7 +37,6 @@
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
-				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 			}
 
@@ -46,10 +44,7 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				// sample the texture
 				fixed4 col = _Color;
-				// apply fog
-				UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;
 			}
 			ENDCG

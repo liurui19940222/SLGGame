@@ -38,13 +38,12 @@ namespace Game.Entity
 
         public ActionRangeView()
         {
-
+            m_ObjList = new List<ActionRangeCellObj>();
         }
 
         public void Create(ActionRangeData data, Transform parent)
         {
             GridMap2D map = SLG.SLGGame.Instance.MapData;
-            m_ObjList = new List<ActionRangeCellObj>();
             foreach (ActionCellData cellData in data.MovingList)
             {
                 ActionRangeCellObj obj = new ActionRangeCellObj(parent);

@@ -17,6 +17,7 @@ namespace Game.SLG.System
 
     public class SLGCharacterSystem : IGameSystem
     {
+        private static int GameId;
 
 #if UNITY_EDITOR
         private Transform m_Root;
@@ -82,6 +83,7 @@ namespace Game.SLG.System
                     break;
             }
             Character character = new Character(id, parent);
+            character.GID = ++GameId;
             list.Add(character);
             return character;
         }

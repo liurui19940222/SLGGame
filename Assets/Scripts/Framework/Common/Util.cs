@@ -70,6 +70,15 @@ namespace Framework.Common
             go.transform.position = position;
         }
 
+        //创建4个Cube分别放在Rect的四个角
+        public static void DebugRect(Rect rect)
+        {
+            Util.DebugCube(new Vector3(rect.xMin, 0, rect.yMin), Vector3.one * 0.3f, Color.red);
+            Util.DebugCube(new Vector3(rect.xMin, 0, rect.yMax), Vector3.one * 0.3f, Color.red);
+            Util.DebugCube(new Vector3(rect.xMax, 0, rect.yMin), Vector3.one * 0.3f, Color.red);
+            Util.DebugCube(new Vector3(rect.xMax, 0, rect.yMax), Vector3.one * 0.3f, Color.red);
+        }
+
         //清除所有Debug生成的对象
         public static void ClearDebug()
         {

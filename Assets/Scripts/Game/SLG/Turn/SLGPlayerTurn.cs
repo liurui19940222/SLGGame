@@ -4,6 +4,7 @@ using Framework.AStar;
 using Framework.Common.Message;
 using Framework.Input;
 using Game.Common;
+using Game.Entity;
 using UnityEngine;
 
 namespace Game.SLG.Turn
@@ -12,6 +13,7 @@ namespace Game.SLG.Turn
     {
         private EInputWord m_PressingWord1;
         private EInputWord m_PressingWord2;
+        private float m_PressMovingWordTime = 0.0f;
 
         public SLGPlayerTurn(TurnAgent agent) : base(agent, SLGTurn.PLAYER_TURN) { }
 
@@ -23,7 +25,7 @@ namespace Game.SLG.Turn
 
         public override int OnUpdate()
         {
-            UpdateCursor();
+            UpdateCursor(false);
             return base.OnUpdate();
         }
 
@@ -54,6 +56,10 @@ namespace Game.SLG.Turn
                     else
                         HandleMultipleWordUp(msg.Word);
                     return true;
+                case EInputWord.A:
+                    if (msg.IsDown)
+                        HandleConfirmButtonDown();
+                    return true;
             }
 
             return false;
@@ -70,6 +76,9 @@ namespace Game.SLG.Turn
             else if (m_PressingWord2 != word)
                 m_PressingWord2 = word;
 
+            if (m_PressMovingWordTime == 0.0f)
+                m_PressMovingWordTime = Time.time;
+            UpdateCursor(true);
             Debug.Log(string.Format("down current input word:{0}  word1:{1}  word2:{2}", word, m_PressingWord1, m_PressingWord2));
         }
 
@@ -80,19 +89,37 @@ namespace Game.SLG.Turn
             if (m_PressingWord2 == word)
                 m_PressingWord2 = EInputWord.NONE;
 
+            if (m_PressingWord1 == m_PressingWord2 && m_PressingWord1 == EInputWord.NONE)
+                m_PressMovingWordTime = 0.0f;
             Debug.Log(string.Format("up current input word:{0}  word1:{1}  word2:{2}", word, m_PressingWord1, m_PressingWord2));
         }
 
-        private void UpdateCursor()
+        private void HandleConfirmButtonDown()
         {
-            if (m_Agent.CursorIsMoving() && m_Agent.CursorGetMovingProgress() < GlobalDefines.CURSOR_MOVING_THRESHOLD)
+            IPoint cursorPoint = m_Agent.Cursor_GetCurPoint();
+            if (SLG.SLGGame.Instance.MAP_HasCellState(cursorPoint, GlobalDefines.CELL_STATE_CHAR))
+            {
+                Character ch = SLG.SLGGame.Instance.MAP_GetActorAtPoint<Character>(cursorPoint);
+                ch.ToggleRangeView();
+            }
+            else
+            {
+                Debug.Log("打开菜单");
+            }
+        }
+
+        private void UpdateCursor(bool ignoreTime)
+        {
+            if (m_Agent.Cursor_IsMoving() && m_Agent.Cursor_GetMovingProgress() < GlobalDefines.CURSOR_MOVING_THRESHOLD)
+                return;
+            if (!ignoreTime && Time.time - m_PressMovingWordTime < GlobalDefines.CURSOR_HOLDON_THRESHOLD)
                 return;
             IPoint point = GlobalFunctions.GetPointByInputWord(m_PressingWord1, 1);
             point += GlobalFunctions.GetPointByInputWord(m_PressingWord2, 1);
             if (point.X == 0 && point.Y == 0)
                 return;
-            m_Agent.CursorMove(point);
-            m_Agent.WorldCameraFollowCellPos(m_Agent.CursorGetCurPoint());
+            m_Agent.Cursor_Move(point);
+            m_Agent.WorldCamera_FollowCellPos(m_Agent.Cursor_GetCurPoint());
         }
     }
 }

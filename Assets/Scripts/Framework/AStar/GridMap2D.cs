@@ -127,7 +127,7 @@ namespace Framework.AStar
             this[x, y].State &= (~state);
         }
 
-        public bool IsState(int x, int y, int state)
+        public bool HasState(int x, int y, int state)
         {
             if (!IsAvailable(x, y)) return false;
             return (this[x, y].State & state) > 0;

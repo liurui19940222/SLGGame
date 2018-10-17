@@ -53,4 +53,13 @@ namespace Game.Entity
             m_Transform = null;
         }
     }
+
+    public abstract class Actor : EntityBase
+    {
+        // 实例Id
+        public int GID { get; set; }
+
+        // 得到在地图格子中会添加的状态
+        public abstract int GetInCellState();
+    }
 }

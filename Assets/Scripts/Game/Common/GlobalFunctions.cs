@@ -9,6 +9,7 @@ namespace Game.Common
 {
     public class GlobalFunctions
     {
+        // 根据输入得到方向
         public static Direction GetDirectionByInputWord(EInputWord word)
         {
             switch (word)
@@ -25,6 +26,7 @@ namespace Game.Common
             return Direction.Center;
         }
 
+        // 根据方向得到整形向量
         public static IPoint GetPointByDir(Direction dir, int step)
         {
             switch (dir)
@@ -41,6 +43,7 @@ namespace Game.Common
             return new IPoint();
         }
 
+        // 根据输入得到整形向量
         public static IPoint GetPointByInputWord(EInputWord word, int step)
         {
             return GetPointByDir(GetDirectionByInputWord(word), step);

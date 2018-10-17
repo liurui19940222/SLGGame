@@ -10,5 +10,11 @@ namespace Game.Config
         public int Id;
 
         public string PrefabName;
+
+        // 移动力
+        public int Locomotivity;
+
+        // 攻击距离
+        public int AttackDistance;
     }
 }

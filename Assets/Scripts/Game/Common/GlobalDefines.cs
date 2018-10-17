@@ -6,6 +6,8 @@ namespace Game.Common
 {
     public class GlobalDefines
     {
+        // 角色的Y坐标分量值
+        public const float CHAR_Y = -0.485f;
 
         // 范围格子的Y坐标分量值
         public const float RANGE_CELL_Y = -0.5f;
@@ -13,11 +15,17 @@ namespace Game.Common
         // 光标的Y坐标分量值
         public const float CURSOR_Y = -0.485f;
 
+        // 箭头的Y坐标分量值
+        public const float ARROW_Y = -0.49f;
+
         // 光标的移动速度
         public const float CURSOR_SPEED = 15.0f;
 
         // 光标连续移动阈值
         public const float CURSOR_MOVING_THRESHOLD = 0.98f;
+
+        // 按键按下多少时间之后，光标开始算连续移动
+        public const float CURSOR_HOLDON_THRESHOLD = 0.15f;
 
         // 世界相机欧拉角度
         public static readonly Vector3 WORLD_CAMERA_EULER = new Vector3(90.0f, 0.0f, 0.0f);

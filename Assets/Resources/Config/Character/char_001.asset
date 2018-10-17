@@ -13,3 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   PrefabName: soldier_spear
+  Locomotivity: 3
+  AttackDistance: 1

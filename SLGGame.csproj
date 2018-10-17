@@ -127,6 +127,7 @@
     <Compile Include="Assets\Scripts\Game\Entity\ActionRange.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\Character.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\EntityBase.cs" />
+    <Compile Include="Assets\Scripts\Game\Entity\GameArrow.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\GameCursor.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\WorldCamera.cs" />
     <Compile Include="Assets\Scripts\Game\GameLoop.cs" />
