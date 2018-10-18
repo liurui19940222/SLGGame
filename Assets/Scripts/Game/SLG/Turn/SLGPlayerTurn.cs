@@ -15,6 +15,9 @@ namespace Game.SLG.Turn
         private EInputWord m_PressingWord2;
         private float m_PressMovingWordTime = 0.0f;
 
+        // 当前光标选中的角色
+        private Character m_CurSelectedCh;
+
         public SLGPlayerTurn(TurnAgent agent) : base(agent, SLGTurn.PLAYER_TURN) { }
 
         public override void OnEnter(IMessage param = null)
@@ -60,6 +63,10 @@ namespace Game.SLG.Turn
                     if (msg.IsDown)
                         HandleConfirmButtonDown();
                     return true;
+                case EInputWord.B:
+                    if (msg.IsDown)
+                        HandleCancelButtonDown();
+                    return true;
             }
 
             return false;
@@ -94,17 +101,44 @@ namespace Game.SLG.Turn
             Debug.Log(string.Format("up current input word:{0}  word1:{1}  word2:{2}", word, m_PressingWord1, m_PressingWord2));
         }
 
+        // 处理确定按钮按下
         private void HandleConfirmButtonDown()
         {
             IPoint cursorPoint = m_Agent.Cursor_GetCurPoint();
+
+            // 如果已经选中角色，判断当前光标指定的格子能否进入
+            if (m_CurSelectedCh != null && SLG.SLGGame.Instance.MAP_CanCharacterMoveOn(cursorPoint))
+            {
+                
+            }
+
             if (SLG.SLGGame.Instance.MAP_HasCellState(cursorPoint, GlobalDefines.CELL_STATE_CHAR))
             {
                 Character ch = SLG.SLGGame.Instance.MAP_GetActorAtPoint<Character>(cursorPoint);
-                ch.ToggleRangeView();
+                if (ch.ToggleRangeView())
+                {
+                    m_CurSelectedCh = ch;
+                }
+                else
+                {
+                    m_CurSelectedCh = null;
+                    m_Agent.Arrow_Close();
+                }
             }
             else
             {
                 Debug.Log("打开菜单");
+            }
+        }
+
+        // 处理取消按钮按下
+        private void HandleCancelButtonDown()
+        {
+            if (m_CurSelectedCh != null)
+            {
+                m_CurSelectedCh.ShowRangeView(false);
+                m_Agent.Arrow_Close();
+                m_CurSelectedCh = null;
             }
         }
 
@@ -120,6 +154,16 @@ namespace Game.SLG.Turn
                 return;
             m_Agent.Cursor_Move(point);
             m_Agent.WorldCamera_FollowCellPos(m_Agent.Cursor_GetCurPoint());
+
+            if (m_CurSelectedCh != null && !m_CurSelectedCh.GetIsWorkDid())
+            {
+                if (IPoint.DistanceWithoutSlope(m_CurSelectedCh.Point, m_Agent.Cursor_GetCurPoint()) <= m_CurSelectedCh.Locomotivity)
+                {
+                    List<IPoint> path = SLG.SLGGame.Instance.MAP_FindPath(m_CurSelectedCh.Point, m_Agent.Cursor_GetCurPoint());
+                    path.Reverse();
+                    m_Agent.Arrow_ShowPath(path);
+                }
+            }
         }
     }
 }

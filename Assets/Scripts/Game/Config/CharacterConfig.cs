@@ -16,5 +16,8 @@ namespace Game.Config
 
         // 攻击距离
         public int AttackDistance;
+
+        // 移动速度
+        public float MoveSpeed;
     }
 }

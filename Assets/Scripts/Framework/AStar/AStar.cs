@@ -249,6 +249,11 @@ namespace Framework.AStar
             return "x:" + X + "\ty:" + Y;
         }
 
+        public static int DistanceWithoutSlope(IPoint a, IPoint b)
+        {
+            return Math.Abs(b.X - a.X) + Math.Abs(b.Y - a.Y);
+        }
+
         public static readonly IPoint Unavailable = new IPoint(0x7FFFFFFF, 0x7FFFFFFF);
     }
 }

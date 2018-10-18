@@ -15,3 +15,4 @@ MonoBehaviour:
   PrefabName: soldier_spear
   Locomotivity: 3
   AttackDistance: 1
+  MoveSpeed: 10

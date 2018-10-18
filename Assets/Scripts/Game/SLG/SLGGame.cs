@@ -27,14 +27,16 @@ namespace Game.SLG
 
             m_TurnAgent = new TurnAgent();
             m_TurnAgent.Cursor = new GameCursor(m_RootTf);
-            m_TurnAgent.Corsor_SetCellPos(new IPoint(11, 10));
+            m_TurnAgent.Cursor_SetCellPos(new IPoint(11, 10));
+
+            m_MapSystem = GameManager.Instance.CreateSystem<SLGMapSystem>(m_MapData);
 
             m_TurnAgent.Arrow = new GameArrow(m_RootTf);
 
             m_TurnAgent.WorldCamera = new WorldCamera(GameObject.Find("GameLoop/Camera").transform);
 
             GameManager.Instance.AddInputEvent(OnInputMsg, 0);
-            m_MapSystem = GameManager.Instance.CreateSystem<SLGMapSystem>(m_MapData);
+
             m_CharacterSystem = GameManager.Instance.CreateSystem<SLGCharacterSystem>(m_RootTf);
             m_TurnSystem = GameManager.Instance.CreateSystem<SLGTurnSystem>(m_TurnAgent);
 
@@ -71,6 +73,12 @@ namespace Game.SLG
         #endregion
 
         #region MapSystem Functions
+
+        // 寻路
+        public List<IPoint> MAP_FindPath(IPoint from, IPoint to)
+        {
+            return m_MapSystem.FindPath(from, to);
+        }
 
         // 添加状态
         public void MAP_AddCellState(IPoint point, int state)

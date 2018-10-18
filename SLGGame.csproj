@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Framework\AStar\GridCustom.cs" />
     <Compile Include="Assets\Scripts\Framework\AStar\GridMap2D.cs" />
     <Compile Include="Assets\Scripts\Framework\Common\GameSystem.cs" />
+    <Compile Include="Assets\Scripts\Framework\Common\MathExtension.cs" />
     <Compile Include="Assets\Scripts\Framework\Common\Message\Message.cs" />
     <Compile Include="Assets\Scripts\Framework\Common\Message\MessageCenter.cs" />
     <Compile Include="Assets\Scripts\Framework\Common\Singleton.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Assets\Scripts\Game\Common\GlobalFunctions.cs" />
     <Compile Include="Assets\Scripts\Game\Common\GlobalMono.cs" />
     <Compile Include="Assets\Scripts\Game\Common\MessageDefines.cs" />
+    <Compile Include="Assets\Scripts\Game\Component\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\Game\Component\GameCamera.cs" />
     <Compile Include="Assets\Scripts\Game\Component\MapRenderer.cs" />
     <Compile Include="Assets\Scripts\Game\Component\MapRes.cs" />

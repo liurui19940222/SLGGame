@@ -85,6 +85,12 @@ namespace Game.SLG.System
             m_MapData.ClearAllCellsState();
         }
 
+        // 寻路
+        public List<IPoint> FindPath(IPoint from, IPoint to)
+        {
+            return m_MapData.FindPath(from, to, true);
+        }
+
         // 添加状态
         public void AddCellState(IPoint point, int state)
         {

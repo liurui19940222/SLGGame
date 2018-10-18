@@ -48,5 +48,20 @@ namespace Game.Common
         {
             return GetPointByDir(GetDirectionByInputWord(word), step);
         }
+
+        // 得到一个点到另一个点的方向
+        public static Direction GetDirFromPointToAnother(IPoint org, IPoint target)
+        {
+            Direction dir = Direction.Center;
+            if (target.X > org.X)
+                dir = Direction.East;
+            else if (target.X < org.X)
+                dir = Direction.West;
+            else if (target.Y > org.Y)
+                dir = Direction.North;
+            else if (target.Y < org.Y)
+                dir = Direction.South;
+            return dir;
+        }
     }
 }

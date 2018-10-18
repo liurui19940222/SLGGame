@@ -1,6 +1,7 @@
 ﻿using Framework.AStar;
 using Game.Common;
 using Game.Entity;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TurnAgent
@@ -17,7 +18,9 @@ public class TurnAgent
 
     public WorldCamera WorldCamera { set { m_WorldCamera = value; } }
 
-    public void Corsor_SetCellPos(IPoint point)
+    #region Cursor Functions
+
+    public void Cursor_SetCellPos(IPoint point)
     {
         m_Cursor.SetCellPos(point);
     }
@@ -42,6 +45,24 @@ public class TurnAgent
         return m_Cursor.CurPoint;
     }
 
+    #endregion
+
+    #region Arrow Functions
+
+    public void Arrow_ShowPath(List<IPoint> path)
+    {
+        m_Arrow.ShowPath(path);
+    }
+
+    public void Arrow_Close()
+    {
+        m_Arrow.Close();
+    }
+
+    #endregion
+
+    #region WorldCamera Functions
+
     public void WorldCamera_LookAtCellPos(IPoint point)
     {
         m_WorldCamera.LookAtCellPos(point);
@@ -51,4 +72,6 @@ public class TurnAgent
     {
         m_WorldCamera.FollowCellPos(point);
     }
+
+    #endregion
 }
