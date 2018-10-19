@@ -20,7 +20,7 @@ namespace Game.SLG.Turn
         private Character m_CurSelectedCh;
         private List<IPoint> m_CursorPath;
 
-        public SLGPlayerTurn(TurnAgent agent) : base(agent, SLGTurn.PLAYER_TURN) { }
+        public SLGPlayerTurn(TurnAgent agent) : base(agent, TurnDefines.PLAYER_TURN) { }
 
         public override void OnEnter(IMessage param = null)
         {

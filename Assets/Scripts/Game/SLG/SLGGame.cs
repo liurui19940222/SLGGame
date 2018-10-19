@@ -5,7 +5,7 @@ using Framework.UI;
 using Game.Data;
 using Game.Entity;
 using Game.SLG.System;
-using Game.UI;
+using Game.UI.GameHud;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -59,4 +59,5 @@ namespace Game.Common
         Friendly,
         Opposite,
     }
+
 }

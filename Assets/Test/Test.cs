@@ -52,5 +52,47 @@ public class Test : MonoBehaviour {
         GL.End();
         GL.PopMatrix();
     }
+    /*
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Vector3 lastPoint = Vector3.zero;
+        for (int i = 0; i < 200; ++i)
+        {
+            Vector3 p1 = Vector3.zero;
+            Vector3 p2 = Vector3.zero;
+            p1.x = i;
+            p1.y = Mathf.Log(p1.x);
+            Gizmos.DrawLine(p1, lastPoint);
+            lastPoint = p1;
+        }
+        Gizmos.color = Color.white;
 
+        Gizmos.color = Color.red;
+        lastPoint = Vector3.zero;
+        for (int i = 0; i < 10; ++i)
+        {
+            Vector3 p1 = Vector3.zero;
+            Vector3 p2 = Vector3.zero;
+            p1.x = i;
+            p1.y = Mathf.Pow(p1.x, 2);
+            Gizmos.DrawLine(p1, lastPoint);
+            lastPoint = p1;
+        }
+        Gizmos.color = Color.white;
+
+        Gizmos.color = Color.blue;
+        lastPoint = Vector3.zero;
+        for (int i = 0; i < 100; ++i)
+        {
+            Vector3 p1 = Vector3.zero;
+            Vector3 p2 = Vector3.zero;
+            p1.x = i;
+            p1.y = Mathf.Sin(p1.x);
+            Gizmos.DrawLine(p1, lastPoint);
+            lastPoint = p1;
+        }
+        Gizmos.color = Color.white;
+    }
+    */
 }

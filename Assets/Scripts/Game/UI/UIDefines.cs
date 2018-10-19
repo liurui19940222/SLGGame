@@ -18,7 +18,7 @@ namespace Game.UI
         // ID_SHOW_ACTION_MENU
         public class ShowActionMenuMsg : IMessage
         {
-
+            
         }
 
         // ID_SHOW_TURN

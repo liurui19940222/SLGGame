@@ -17,7 +17,7 @@ namespace Game.SLG.System
             TurnAgent agent = pars[0] as TurnAgent;
             m_TurnFSM = new FSMMachine();
             m_TurnFSM.AddState(new SLGPlayerTurn(agent));
-            m_TurnFSM.SetDefaultState(SLGTurn.PLAYER_TURN);
+            m_TurnFSM.SetDefaultState(TurnDefines.PLAYER_TURN);
         }
 
         public override void OnUpdate()
