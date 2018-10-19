@@ -77,7 +77,7 @@ namespace Framework.UI
             {
                 m_HUDs.Add(ui);
             }
-            Util.Invoke(ui, "Initialize", go);
+            Util.Invoke((IUserInterface)ui, "Initialize", go);
             return ui as T;
         }
 
@@ -121,8 +121,16 @@ namespace Framework.UI
         public bool HandleInput(InputMessage msg)
         {
             if (m_ActivatedUI != null)
-                return m_ActivatedUI.OnInput(msg);
+            {
+                m_ActivatedUI.OnInput(msg);
+                return true;
+            }
             return false;
+        }
+
+        public void SendEvent(int id, IMessage msg)
+        {
+            MessageCenter.Instance.SendMessage(id, msg);
         }
     }
 
@@ -169,6 +177,16 @@ namespace Framework.UI
 
         //当IUserInterface被销毁时调用
         protected virtual void OnDestroy() { }
+
+        protected void AddListener(int id, System.Action<IMessage> call)
+        {
+            MessageCenter.Instance.AddListener(id, call);
+        }
+
+        protected void RemoveListener(int id, System.Action<IMessage> call)
+        {
+            MessageCenter.Instance.RemoveListener(id, call);
+        }
     }
 
     public enum EUIType

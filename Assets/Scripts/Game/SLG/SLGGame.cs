@@ -1,9 +1,11 @@
 ﻿using Framework.AStar;
 using Framework.Common;
 using Framework.Common.Message;
+using Framework.UI;
 using Game.Data;
 using Game.Entity;
 using Game.SLG.System;
+using Game.UI;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,6 +44,8 @@ namespace Game.SLG
 
             Character ch = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 1);
             ch.SetCellPos(new IPoint(11, 10));
+
+            GameManager.Instance.UIMgr.OpenUI<GameHud>();
         }
 
         public void Unload()

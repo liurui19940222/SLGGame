@@ -5,6 +5,7 @@ using Framework.Common.Message;
 using Framework.Input;
 using Game.Common;
 using Game.Entity;
+using Game.UI;
 using UnityEngine;
 
 namespace Game.SLG.Turn
@@ -17,6 +18,7 @@ namespace Game.SLG.Turn
 
         // 当前光标选中的角色
         private Character m_CurSelectedCh;
+        private List<IPoint> m_CursorPath;
 
         public SLGPlayerTurn(TurnAgent agent) : base(agent, SLGTurn.PLAYER_TURN) { }
 
@@ -109,7 +111,12 @@ namespace Game.SLG.Turn
             // 如果已经选中角色，判断当前光标指定的格子能否进入
             if (m_CurSelectedCh != null && SLG.SLGGame.Instance.MAP_CanCharacterMoveOn(cursorPoint))
             {
-                
+                if (IPoint.DistanceWithoutSlope(m_CurSelectedCh.Point, cursorPoint) <= m_CurSelectedCh.Locomotivity)
+                {
+                    m_CurSelectedCh.MoveAlongPath(m_CursorPath.ToArray());
+                    m_CurSelectedCh.SetOnMoveDoneDelegate(OnCharacterMoveDone);
+                    return;
+                }
             }
 
             if (SLG.SLGGame.Instance.MAP_HasCellState(cursorPoint, GlobalDefines.CELL_STATE_CHAR))
@@ -123,6 +130,7 @@ namespace Game.SLG.Turn
                 {
                     m_CurSelectedCh = null;
                     m_Agent.Arrow_Close();
+                    m_CursorPath = null;
                 }
             }
             else
@@ -139,6 +147,7 @@ namespace Game.SLG.Turn
                 m_CurSelectedCh.ShowRangeView(false);
                 m_Agent.Arrow_Close();
                 m_CurSelectedCh = null;
+                m_CursorPath = null;
             }
         }
 
@@ -159,10 +168,19 @@ namespace Game.SLG.Turn
             {
                 if (IPoint.DistanceWithoutSlope(m_CurSelectedCh.Point, m_Agent.Cursor_GetCurPoint()) <= m_CurSelectedCh.Locomotivity)
                 {
-                    List<IPoint> path = SLG.SLGGame.Instance.MAP_FindPath(m_CurSelectedCh.Point, m_Agent.Cursor_GetCurPoint());
-                    path.Reverse();
-                    m_Agent.Arrow_ShowPath(path);
+                    m_CursorPath = SLG.SLGGame.Instance.MAP_FindPath(m_CurSelectedCh.Point, m_Agent.Cursor_GetCurPoint());
+                    m_CursorPath.Reverse();
+                    m_Agent.Arrow_ShowPath(m_CursorPath);
                 }
+            }
+        }
+
+        // 当角色移动完成
+        private void OnCharacterMoveDone(Character ch)
+        {
+            if (ch == m_CurSelectedCh)
+            {
+                GameManager.Instance.UIMgr.SendEvent(UIDefines.ID_SHOW_ACTION_MENU, null);
             }
         }
     }

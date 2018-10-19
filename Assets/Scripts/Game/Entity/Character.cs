@@ -18,11 +18,17 @@ namespace Game.Entity
 
         public IPoint Point { get { return m_LastPoint; } }
 
+        private System.Action<Character> m_OnMoveDone;
+
         public Character(int id, Transform parent)
         {
             m_ChrConfig = (CharacterConfig)GameManager.Instance.ResLoader.LoadAsset(ResourceLoader.CHAR_CFG_PATH, string.Format("char_{0:D3}", id));
             CreateInstance(ResourceLoader.CHAR_PATH, m_ChrConfig.PrefabName, parent);
             m_Movement = m_GameObject.AddComponent<CharacterMovement>();
+            m_Movement.SetOnMoveDoneDelegate(() => {
+                if (m_OnMoveDone != null)
+                    m_OnMoveDone(this);
+            });
         }
 
         public override int GetInCellState()
@@ -57,11 +63,11 @@ namespace Game.Entity
             return m_IsRangeViewShowing;
         }
 
-        public void ShowRangeView(bool isShow)
+        public void ShowRangeView(bool isShow, bool onlyAttackingRange = false)
         {
             m_IsRangeViewShowing = isShow;
             if (isShow)
-                SLG.SLGGame.Instance.MAP_ShowRangeViewAtPoint(m_LastPoint, GID, m_ChrConfig.Locomotivity, m_ChrConfig.AttackDistance);
+                SLG.SLGGame.Instance.MAP_ShowRangeViewAtPoint(m_LastPoint, GID, onlyAttackingRange ? 0 : m_ChrConfig.Locomotivity, m_ChrConfig.AttackDistance);
             else
                 SLG.SLGGame.Instance.MAP_CloseRangeView(GID);
         }
@@ -106,6 +112,11 @@ namespace Game.Entity
         public void MoveAlongPath(Vector3[] path)
         {
             m_Movement.MoveAlongPath(path, m_ChrConfig.MoveSpeed);
+        }
+
+        public void SetOnMoveDoneDelegate(System.Action<Character> onMoveDone)
+        {
+            m_OnMoveDone = onMoveDone;
         }
     }
 }

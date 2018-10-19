@@ -114,6 +114,7 @@
     <Compile Include="Assets\Scripts\Framework\Input\InputTranslater.cs" />
     <Compile Include="Assets\Scripts\Framework\Input\KeyboardInput.cs" />
     <Compile Include="Assets\Scripts\Framework\Input\XboxInput.cs" />
+    <Compile Include="Assets\Scripts\Framework\UI\ConsoleMenu.cs" />
     <Compile Include="Assets\Scripts\Framework\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\Game\Common\GlobalDefines.cs" />
     <Compile Include="Assets\Scripts\Game\Common\GlobalFunctions.cs" />
@@ -140,12 +141,15 @@
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGMapSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGTurnSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGPlayerTurn.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGTransitionTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\TurnAgent.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\BaseScene.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\FightingScene.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\SceneDefines.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\StartScene.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\GameHud.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\UIDefines.cs" />
     <Compile Include="Assets\Test\Test.cs" />
   </ItemGroup>
   <ItemGroup>

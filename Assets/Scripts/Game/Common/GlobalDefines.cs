@@ -51,4 +51,12 @@ namespace Game.Common
         West,
         East,
     }
+
+    public enum ETurnType
+    {
+        System,
+        OwnSide,
+        Friendly,
+        Opposite,
+    }
 }

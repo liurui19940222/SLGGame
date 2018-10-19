@@ -25,6 +25,8 @@ namespace Game.Component
         private float m_MovingTime;
         private bool m_IsMoving = false;
 
+        private System.Action m_OnMoveDone;
+
         void Awake()
         {
             m_Transform = transform;
@@ -50,15 +52,22 @@ namespace Game.Component
                 m_Transform.position = GetPosInPath(1.0f);
                 m_Animator.SetFloat("Speed", 0.0f);
                 m_IsMoving = false;
+                if (m_OnMoveDone != null)
+                    m_OnMoveDone();
             }
             else
             {
                 Vector3 oldPos = m_Transform.position;
                 m_Transform.position = GetPosInPath(m_MovingTimer / m_MovingTime);
                 Quaternion targetRotation = Quaternion.LookRotation(m_Transform.position - oldPos);
-                m_Transform.rotation = Quaternion.RotateTowards(m_Transform.rotation, targetRotation, 10);
+                m_Transform.rotation = Quaternion.RotateTowards(m_Transform.rotation, targetRotation, 15);
                 m_Animator.SetFloat("Speed", 1.0f);
             }
+        }
+
+        public void SetOnMoveDoneDelegate(System.Action onMoveDone)
+        {
+            m_OnMoveDone = onMoveDone;
         }
 
         // 移动到指定位置

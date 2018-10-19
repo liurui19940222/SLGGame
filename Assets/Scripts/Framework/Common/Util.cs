@@ -10,10 +10,16 @@ namespace Framework.Common
         //反射调用成员方法
         public static void Invoke(object obj, string method, params object[] param)
         {
-            MethodInfo info = obj.GetType().GetMethod(method, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-            if (info != null)
+            Type type = obj.GetType();
+            while (type != null)
             {
-                info.Invoke(obj, param);
+                MethodInfo info = type.GetMethod(method, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+                if (info != null)
+                {
+                    info.Invoke(obj, param);
+                    break;
+                }
+                type = type.BaseType;
             }
         }
 
