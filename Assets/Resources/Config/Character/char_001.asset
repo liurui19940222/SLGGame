@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: char_001
   m_EditorClassIdentifier: 
   Id: 1
-  PrefabName: soldier_spear
-  Locomotivity: 3
+  PrefabName: guanyu
+  Locomotivity: 5
   AttackDistance: 1
   MoveSpeed: 10
