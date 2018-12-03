@@ -6,17 +6,19 @@ namespace Game.Common
 {
     public class GlobalDefines
     {
-        // 角色的Y坐标分量值
-        public const float CHAR_Y = -0.485f;
+        private const float PerLayerOffset = 0.002f;
 
         // 范围格子的Y坐标分量值
-        public const float RANGE_CELL_Y = -0.5f;
+        public const float RANGE_CELL_Y = PerLayerOffset;
 
         // 光标的Y坐标分量值
-        public const float CURSOR_Y = -0.485f;
+        public const float CURSOR_Y = RANGE_CELL_Y + PerLayerOffset;
 
         // 箭头的Y坐标分量值
-        public const float ARROW_Y = -0.49f;
+        public const float ARROW_Y = CURSOR_Y + PerLayerOffset;
+
+        // 角色的Y坐标分量值
+        public const float CHAR_Y = ARROW_Y;
 
         // 光标的移动速度
         public const float CURSOR_SPEED = 15.0f;
@@ -28,10 +30,13 @@ namespace Game.Common
         public const float CURSOR_HOLDON_THRESHOLD = 0.15f;
 
         // 世界相机欧拉角度
-        public static readonly Vector3 WORLD_CAMERA_EULER = new Vector3(90.0f, 0.0f, 0.0f);
+        public static readonly Vector3 WORLD_CAMERA_EULER = new Vector3(70.0f, 0.0f, 0.0f);
 
         // 世界相机Y坐标分量值
         public const float WORLD_CAMERA_Y = 10.0f;
+
+        // 世界相机Z坐标偏移值
+        public const float WORLD_CAMERA_Z_OFFSET = -3.56f;
 
         // 世界相机正交投影大小
         public const float WORLD_CAMERA_SIZE = 6.0f;

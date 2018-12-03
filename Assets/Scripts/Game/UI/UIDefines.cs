@@ -1,5 +1,6 @@
 ﻿using Framework.Common.Message;
 using Game.Common;
+using Game.UI.GameHud;
 
 namespace Game.UI
 {
@@ -10,6 +11,9 @@ namespace Game.UI
 
         // 显示回合
         public const int ID_SHOW_TURN = 1001;
+
+        // 取消
+        public const int ID_MENU_SELECTED = 1002;
     }
 
     namespace Message
@@ -27,5 +31,10 @@ namespace Game.UI
             public ETurnType TurnType;
         }
 
+        // ID_MENU_SELECTED
+        public class MenuSelectedMsg : IMessage
+        {
+            public EActionMenuOption option;
+        }
     }
 }

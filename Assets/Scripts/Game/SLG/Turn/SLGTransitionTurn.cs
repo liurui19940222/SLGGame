@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Framework.Common.Message;
 using Game.Common;
+using Game.SLG.System;
 using Game.SLG.Turn.Message;
 using Game.UI;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace Game.SLG.Turn
 
         public override void OnEnter(IMessage param = null)
         {
+            Debug.Log("transition turn enter target:" + (param as TransitionTurnMsg).targetTurn);
             base.OnEnter(param);
             m_TargetTurn = (param as TransitionTurnMsg).targetTurn;
             m_Timer = 0.0f;
@@ -35,6 +37,7 @@ namespace Game.SLG.Turn
 
         public override void OnExit()
         {
+            Debug.Log("transition turn exit");
             base.OnExit();
         }
 
@@ -52,10 +55,20 @@ namespace Game.SLG.Turn
                     case ETurnType.Friendly:
                         break;
                     case ETurnType.Opposite:
-                        break;
+                        return TurnDefines.OPPOSITE_TURN;
                 }
             }
             return base.OnUpdate();
+        }
+
+        protected override ETurnType GetNextTurn()
+        {
+            return m_TargetTurn;
+        }
+
+        protected override ECharacterRelation GetChRelation()
+        {
+            return ECharacterRelation.Nothing;
         }
     }
 }

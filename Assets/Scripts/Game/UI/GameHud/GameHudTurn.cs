@@ -34,7 +34,7 @@ public class GameHudTurn {
             m_TurnText.text = m_TurnTextBack.text = "我方回合";
         else if (type == ETurnType.Friendly)
             m_TurnText.text = m_TurnTextBack.text = "友方回合";
-        else if (type == ETurnType.Friendly)
+        else if (type == ETurnType.Opposite)
             m_TurnText.text = m_TurnTextBack.text = "敌方回合";
 
         GlobalMono.Instance.StartCoroutine(DoHide());

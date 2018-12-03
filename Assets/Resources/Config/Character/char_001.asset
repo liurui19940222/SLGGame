@@ -15,4 +15,5 @@ MonoBehaviour:
   PrefabName: guanyu
   Locomotivity: 5
   AttackDistance: 1
-  MoveSpeed: 10
+  MoveSpeed: 5
+  ScaleInMap: 0.4

@@ -42,10 +42,17 @@ namespace Game.SLG
             m_CharacterSystem = GameManager.Instance.CreateSystem<SLGCharacterSystem>(m_RootTf);
             m_TurnSystem = GameManager.Instance.CreateSystem<SLGTurnSystem>(m_TurnAgent);
 
+            m_TurnAgent.TurnSystem = m_TurnSystem;
+
             Character ch = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 1);
             ch.SetCellPos(new IPoint(11, 10));
 
+            Character ch2 = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 2);
+            ch2.SetCellPos(new IPoint(9, 10));
+
             GameManager.Instance.UIMgr.OpenUI<GameHud>();
+
+            m_TurnSystem.SwitchTurn(Common.ETurnType.OwnSide);
         }
 
         public void Unload()
@@ -72,6 +79,16 @@ namespace Game.SLG
         public Character CS_CreateCharacterAtPoint(ECharacterRelation relation, int id)
         {
             return m_CharacterSystem.CreateCharacterAtPoint(relation, id);
+        }
+
+        public void CS_RefreshActions(ECharacterRelation relation)
+        {
+            m_CharacterSystem.RefreshActions(relation);
+        }
+
+        public int CS_GetCanActCount(ECharacterRelation relation)
+        {
+            return m_CharacterSystem.GetCanActCount(relation);
         }
 
         #endregion

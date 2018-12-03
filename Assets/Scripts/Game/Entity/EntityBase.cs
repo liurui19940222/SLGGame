@@ -52,6 +52,16 @@ namespace Game.Entity
             m_GameObject = null;
             m_Transform = null;
         }
+
+        protected void ResetTransformation()
+        {
+            if (this.m_Transform != null)
+            {
+                this.m_Transform.localPosition = Vector3.zero;
+                this.m_Transform.localScale = Vector3.one;
+                this.m_Transform.localRotation = Quaternion.identity;
+            }
+        }
     }
 
     public abstract class Actor : EntityBase

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_CellInfo:
   - Type: 0
     Color: {r: 0, g: 0, b: 0, a: 0}
-  - Type: 1
+  - Type: 0
     Color: {r: 1, g: 0, b: 0, a: 1}
   m_StartPointColor: {r: 0, g: 0.46206903, b: 1, a: 1}
   m_EndPointColor: {r: 1, g: 1, b: 1, a: 1}

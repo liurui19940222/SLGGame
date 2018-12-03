@@ -28,8 +28,7 @@ namespace Game.Scene
             m_MapRes = GameManager.Instance.ResLoader.LoadMapAsset(msg.TargetMapName);
             m_MapRes.transform.SetParent(GetRootTf());
             m_MapRenderer = GameManager.Instance.ResLoader.LoadToolComponent<MapRenderer>("MapRenderer");
-            m_MapRenderer.MapData = m_MapRes.MapData;
-            m_MapRenderer.Camera = GameCamera.Instance.Camera;
+            m_MapRenderer.InitWithMapData(m_MapRes.MapData);
             m_MapRenderer.EnableGridDrawing();
             m_MapRenderer.transform.SetParent(GetRootTf());
         }

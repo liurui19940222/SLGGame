@@ -1,6 +1,7 @@
 ﻿using Framework.Common.Message;
 using Framework.UI;
 using Game.Common;
+using Game.UI.Message;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,8 @@ namespace Game.UI.GameHud
 {
     public enum EActionMenuOption
     {
-        Attack,
+        Cancel = -1,
+        Attack = 0,
         Skill,
         Standby,
     }
@@ -58,7 +60,7 @@ namespace Game.UI.GameHud
             m_ActionMenu.AddItem<ConsoleMenuItemText>((int)EActionMenuOption.Standby).SetText("待机");
             m_ActionMenu.ResetCursor();
             m_ActionMenu.Show(true);
-            GameManager.Instance.UIMgr.SetActivate(this);
+            GameManager.Instance.UIMgr.SetActivate(this, true);
         }
 
         private void OnShowTurn(IMessage msg)
@@ -70,14 +72,11 @@ namespace Game.UI.GameHud
 
         private void OnActionMenuItemSelected(int id)
         {
-            if (id == (int)EActionMenuOption.Attack)
-            {
-
-            }
-            else if (id == (int)EActionMenuOption.Standby)
-            {
-                
-            }
+            MenuSelectedMsg msg = new MenuSelectedMsg();
+            msg.option = (EActionMenuOption)id;
+            this.m_ActionMenu.Show(false);
+            GameManager.Instance.UIMgr.SetActivate(this, false);
+            MessageCenter.Instance.SendMessage(UIDefines.ID_MENU_SELECTED, msg);
         }
     }
 }

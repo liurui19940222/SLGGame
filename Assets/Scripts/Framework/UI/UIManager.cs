@@ -67,7 +67,7 @@ namespace Framework.UI
             {
                 trans.SetAsLastSibling();
                 m_GroupUIs.Add(ui);
-                SetActivate(ui);
+                SetActivate(ui, true);
             }
             else if (ui.Type == EUIType.SingleUI)
             {
@@ -112,9 +112,17 @@ namespace Framework.UI
         }
 
         //设置一个UI为当前激活
-        public void SetActivate(IUserInterface ui)
+        public void SetActivate(IUserInterface ui, bool active)
         {
-            m_ActivatedUI = ui;
+            if (active)
+            {
+                m_ActivatedUI = ui;
+            }
+            else
+            {
+                if (this.m_ActivatedUI == ui)
+                    this.m_ActivatedUI = null;
+            }
         }
 
         //处理按钮输入的回调
@@ -186,6 +194,11 @@ namespace Framework.UI
         protected void RemoveListener(int id, System.Action<IMessage> call)
         {
             MessageCenter.Instance.RemoveListener(id, call);
+        }
+
+        protected void SendMassage(int id, IMessage msg)
+        {
+            MessageCenter.Instance.SendMessage(id, msg);
         }
     }
 

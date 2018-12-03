@@ -1,6 +1,7 @@
 ﻿using Framework.AStar;
 using Game.Common;
 using Game.Entity;
+using Game.SLG.System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,11 +13,15 @@ public class TurnAgent
 
     private WorldCamera m_WorldCamera;
 
+    private SLGTurnSystem m_TurnSystem;
+
     public GameCursor Cursor { set { m_Cursor = value; } }
 
     public GameArrow Arrow { set { m_Arrow = value; } }
 
     public WorldCamera WorldCamera { set { m_WorldCamera = value; } }
+
+    public SLGTurnSystem TurnSystem { set { m_TurnSystem = value; } }
 
     #region Cursor Functions
 
@@ -71,6 +76,15 @@ public class TurnAgent
     public void WorldCamera_FollowCellPos(IPoint point)
     {
         m_WorldCamera.FollowCellPos(point);
+    }
+
+    #endregion
+
+    #region TurnSystem Functions
+
+    public void Turn_SwitchTurn(Game.Common.ETurnType turn)
+    {
+        m_TurnSystem.SwitchTurn(turn);
     }
 
     #endregion

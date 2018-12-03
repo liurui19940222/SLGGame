@@ -185,16 +185,10 @@ namespace Framework.AStar
         public string Tag;
     }
 
-    public class IPoint
+    public struct IPoint
     {
         public int X { get; set; }
         public int Y { get; set; }
-
-        public IPoint()
-        {
-            X = 0;
-            Y = 0;
-        }
 
         public IPoint(int x, int y)
         {
@@ -232,13 +226,6 @@ namespace Framework.AStar
             return new IPoint(a.X / b.X, a.Y / b.Y);
         }
 
-        public override bool Equals(object obj)
-        {
-            if (obj is IPoint)
-                return obj as IPoint == this;
-            return false;
-        }
-
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -247,6 +234,11 @@ namespace Framework.AStar
         public override string ToString()
         {
             return "x:" + X + "\ty:" + Y;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
         }
 
         public static int DistanceWithoutSlope(IPoint a, IPoint b)

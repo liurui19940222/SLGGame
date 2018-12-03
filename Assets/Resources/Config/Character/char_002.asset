@@ -16,3 +16,4 @@ MonoBehaviour:
   Locomotivity: 3
   AttackDistance: 1
   MoveSpeed: 10
+  ScaleInMap: 0.4

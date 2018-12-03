@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGCharacterSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGMapSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGTurnSystem.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGOppositeTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGPlayerTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGTransitionTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGTurn.cs" />
@@ -118,7 +119,9 @@
     <Compile Include="Assets\Scripts\Game\UI\GameHud\GameHudTurn.cs" />
     <Compile Include="Assets\Scripts\Game\UI\UIDefines.cs" />
     <Compile Include="Assets\Test\Test.cs" />
+    <None Include="Assets\RawRes\Shader\Role.shader" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween43.xml" />
+    <None Include="Assets\RawRes\Shader\GridEnv.shader" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\readme.txt" />
     <None Include="Assets\RawRes\Shader\GridLine.shader" />
     <None Include="Assets\RawRes\Shader\Color.shader" />

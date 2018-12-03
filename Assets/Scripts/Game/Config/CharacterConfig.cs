@@ -19,5 +19,8 @@ namespace Game.Config
 
         // 移动速度
         public float MoveSpeed;
+
+        // 地图中的缩放
+        public float ScaleInMap;
     }
 }

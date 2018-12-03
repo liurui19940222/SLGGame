@@ -8,64 +8,41 @@ namespace Game.Component
 {
     public class MapRenderer : MonoBehaviour
     {
-        public Material LineMat;
-
-        public Camera Camera;
         public GridMap2D MapData;
-        private bool m_NeedDrawGrid;
+
+        private Transform m_Grid;
+
+        private Material m_GridMat;
+
+        private void Awake()
+        {
+            m_Grid = transform.Find("Grid");
+            m_GridMat = m_Grid.GetComponent<MeshRenderer>().sharedMaterial;   
+        }
+
+        public void InitWithMapData(GridMap2D MapData)
+        {
+            this.MapData = MapData;
+            Vector3 scale = new Vector3(MapData.m_colCount * MapData.m_cellWidth, MapData.m_rowCount * MapData.m_cellHeight, 1.0f);
+            m_Grid.localScale = scale;
+            m_Grid.position = MapData.m_offsetInWorldSapce;
+            m_GridMat.SetTextureScale("_MainTex", new Vector2(MapData.m_colCount, MapData.m_rowCount));
+        }
 
         public void EnableGridDrawing()
         {
-            m_NeedDrawGrid = true;
+            this.m_Grid.gameObject.SetActive(true);
         }
 
         public void DisableGridDrawing()
         {
-            m_NeedDrawGrid = false;
-        }
-
-        void OnRenderObject()
-        {
-            if (m_NeedDrawGrid)
-            {
-                DrawGrid();
-            }
-        }
-
-        private void DrawGrid()
-        {
-            GL.wireframe = true;
-            GL.PushMatrix(); //保存当前Matirx
-            LineMat.SetPass(0); //刷新当前材质
-            GL.LoadProjectionMatrix(Camera.projectionMatrix);
-            GL.Begin(GL.LINES);
-
-            Vector3 startPos = new Vector3(-MapData.Length * 0.5f, 0, -MapData.Height * 0.5f) + MapData.m_offsetInWorldSapce;
-            Vector3 p0, p1 = default(Vector3);
-            for (int x = 0; x <= MapData.m_colCount; x++)
-            {
-                p0 = startPos + new Vector3(MapData.m_cellWidth * x, 0, 0);
-                p1 = p0 + new Vector3(0, 0, MapData.Height);
-                GL.Vertex3(p0.x, p0.y, p0.z);
-                GL.Vertex3(p1.x, p1.y, p1.z);
-            }
-
-            for (int y = 0; y <= MapData.m_rowCount; y++)
-            {
-                p0 = startPos + new Vector3(0, 0, MapData.m_cellHeight * y);
-                p1 = p0 + new Vector3(MapData.Length, 0, 0);
-                GL.Vertex3(p0.x, p0.y, p0.z);
-                GL.Vertex3(p1.x, p1.y, p1.z);
-            }
-            GL.End();
-            GL.PopMatrix();
-            GL.wireframe = false;
+            this.m_Grid.gameObject.SetActive(false);
         }
 
         [ContextMenu("EnableDrawing")]
         void Editor_Enable()
         {
-            EnableGridDrawing();
+            InitWithMapData(MapData);
         }
 
     }

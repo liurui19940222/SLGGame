@@ -5,7 +5,9 @@ using Framework.Common.Message;
 using Framework.Input;
 using Game.Common;
 using Game.Entity;
+using Game.SLG.System;
 using Game.UI;
+using Game.UI.Message;
 using UnityEngine;
 
 namespace Game.SLG.Turn
@@ -20,12 +22,17 @@ namespace Game.SLG.Turn
         private Character m_CurSelectedCh;
         private List<IPoint> m_CursorPath;
 
+        // 角色移动之前的位置
+        private IPoint m_ChLastPoint = IPoint.Unavailable;
+
         public SLGPlayerTurn(TurnAgent agent) : base(agent, TurnDefines.PLAYER_TURN) { }
 
         public override void OnEnter(IMessage param = null)
         {
             base.OnEnter(param);
             Debug.Log("player turn enter");
+            SLGGame.Instance.CS_RefreshActions(System.ECharacterRelation.OwnSide);
+            MessageCenter.Instance.AddListener(UIDefines.ID_MENU_SELECTED, this.OnMenuSelected);
         }
 
         public override int OnUpdate()
@@ -38,6 +45,8 @@ namespace Game.SLG.Turn
         {
             base.OnExit();
             Debug.Log("player turn exit");
+
+            MessageCenter.Instance.RemoveListener(UIDefines.ID_MENU_SELECTED, this.OnMenuSelected);
         }
 
         public override void HandleInput(InputMessage msg)
@@ -113,6 +122,7 @@ namespace Game.SLG.Turn
             {
                 if (IPoint.DistanceWithoutSlope(m_CurSelectedCh.Point, cursorPoint) <= m_CurSelectedCh.Locomotivity)
                 {
+                    m_ChLastPoint = m_CurSelectedCh.Point;
                     m_CurSelectedCh.MoveAlongPath(m_CursorPath.ToArray());
                     m_CurSelectedCh.SetOnMoveDoneDelegate(OnCharacterMoveDone);
                     return;
@@ -122,20 +132,27 @@ namespace Game.SLG.Turn
             if (SLG.SLGGame.Instance.MAP_HasCellState(cursorPoint, GlobalDefines.CELL_STATE_CHAR))
             {
                 Character ch = SLG.SLGGame.Instance.MAP_GetActorAtPoint<Character>(cursorPoint);
-                if (ch.ToggleRangeView())
+                if (ch.HasAction)
                 {
-                    m_CurSelectedCh = ch;
+                    if (ch.ToggleRangeView())
+                    {
+                        m_CurSelectedCh = ch;
+                    }
+                    else
+                    {
+                        m_CurSelectedCh = null;
+                        m_Agent.Arrow_Close();
+                        m_CursorPath = null;
+                    }
                 }
                 else
                 {
-                    m_CurSelectedCh = null;
-                    m_Agent.Arrow_Close();
-                    m_CursorPath = null;
+                    OpenMenu();
                 }
             }
             else
             {
-                Debug.Log("打开菜单");
+                OpenMenu();
             }
         }
 
@@ -144,11 +161,22 @@ namespace Game.SLG.Turn
         {
             if (m_CurSelectedCh != null)
             {
+                if (m_CurSelectedCh.HasAction && m_ChLastPoint != IPoint.Unavailable)
+                {
+                    m_Agent.Cursor_SetCellPos(m_ChLastPoint);
+                    m_Agent.WorldCamera_FollowCellPos(m_ChLastPoint);
+                }
                 m_CurSelectedCh.ShowRangeView(false);
                 m_Agent.Arrow_Close();
                 m_CurSelectedCh = null;
                 m_CursorPath = null;
             }
+        }
+
+        // 打开菜单
+        private void OpenMenu()
+        {
+            Debug.Log("打开菜单");
         }
 
         private void UpdateCursor(bool ignoreTime)
@@ -181,7 +209,51 @@ namespace Game.SLG.Turn
             if (ch == m_CurSelectedCh)
             {
                 GameManager.Instance.UIMgr.SendEvent(UIDefines.ID_SHOW_ACTION_MENU, null);
+                m_Agent.Arrow_Close();
+                ch.ShowRangeView(false);
             }
+        }
+
+        // 当取消操作选单
+        private void OnMenuSelected(IMessage imsg)
+        {
+            if (this.m_CurSelectedCh == null)
+                return;
+            MenuSelectedMsg msg = imsg as MenuSelectedMsg;
+            switch (msg.option)
+            {
+                case UI.GameHud.EActionMenuOption.Cancel:
+                    {
+                        SLG.SLGGame.Instance.MAP_RemoveActorAtPoint(m_CurSelectedCh, m_CurSelectedCh.Point);
+                        m_CurSelectedCh.SetCellPos(m_ChLastPoint, false, true);
+                        m_CurSelectedCh.ShowRangeView(true);
+                        m_Agent.Arrow_ShowPath(m_CursorPath);
+                    }
+                    break;
+                case UI.GameHud.EActionMenuOption.Attack:
+                    break;
+                case UI.GameHud.EActionMenuOption.Skill:
+                    break;
+                case UI.GameHud.EActionMenuOption.Standby:
+                    {
+                        m_CurSelectedCh.Done();
+                        m_CurSelectedCh = null;
+                        m_CursorPath = null;
+                        m_ChLastPoint = IPoint.Unavailable;
+                        CheckCanActCount();
+                    }
+                    break;
+            }
+        }
+
+        protected override ETurnType GetNextTurn()
+        {
+            return ETurnType.Opposite;
+        }
+
+        protected override ECharacterRelation GetChRelation()
+        {
+            return ECharacterRelation.OwnSide;
         }
     }
 }

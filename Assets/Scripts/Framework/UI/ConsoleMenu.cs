@@ -184,6 +184,12 @@ namespace Framework.UI
                         m_OnSelected(m_Items[m_CurIndex].Id);
                     }
                     return true;
+                case Input.EInputWord.B:
+                    if (m_OnSelected != null)
+                    {
+                        m_OnSelected(-1);
+                    }
+                    return true;
             }
             return false;
         }

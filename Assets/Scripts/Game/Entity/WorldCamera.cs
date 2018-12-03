@@ -28,6 +28,7 @@ namespace Game.Entity
         {
             Vector3 worldPos = m_Map.CellToWorldSpacePos(point.X, point.Y);
             worldPos.y = GlobalDefines.WORLD_CAMERA_Y;
+            worldPos.z += GlobalDefines.WORLD_CAMERA_Z_OFFSET;
             m_Transform.position = worldPos;
         }
 
@@ -57,6 +58,7 @@ namespace Game.Entity
             else if (yMax > m_MaxMapRect.yMax)
                 worldPos.z = m_MaxMapRect.yMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE - range_y;
 
+            worldPos.z += GlobalDefines.WORLD_CAMERA_Z_OFFSET;
             worldPos.y = GlobalDefines.WORLD_CAMERA_Y;
             return worldPos;
         }

@@ -13,6 +13,7 @@ namespace Game.SLG.System
         OwnSide = 0,
         Opposed = 1,
         Friendly = 2,
+        Nothing = 3,
     }
 
     public class SLGCharacterSystem : IGameSystem
@@ -86,6 +87,47 @@ namespace Game.SLG.System
             character.GID = ++GameId;
             list.Add(character);
             return character;
+        }
+
+        // 刷新所有角色的行动
+        public void RefreshActions(ECharacterRelation relation)
+        {
+            List<Character> list = GetChList(relation);
+            foreach (Character ch in list)
+            {
+                ch.RefreshAction();
+            }
+        }
+
+        // 得到能行动的角色的数量
+        public int GetCanActCount(ECharacterRelation relation)
+        {
+            List<Character> list = GetChList(relation);
+            int count = 0;
+            foreach (Character ch in list)
+            {
+                if (ch.HasAction)
+                    count++;
+            }
+            return count;
+        }
+
+        private List<Character> GetChList(ECharacterRelation relation)
+        {
+            List<Character> list = null;
+            switch (relation)
+            {
+                case ECharacterRelation.OwnSide:
+                    list = m_OwnSideCharacters;
+                    break;
+                case ECharacterRelation.Opposed:
+                    list = m_OpposedCharacters;
+                    break;
+                case ECharacterRelation.Friendly:
+                    list = m_FriendlyCharacters;
+                    break;
+            }
+            return list;
         }
     }
 } 

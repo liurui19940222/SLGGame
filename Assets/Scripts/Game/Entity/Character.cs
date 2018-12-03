@@ -13,8 +13,11 @@ namespace Game.Entity
         private CharacterMovement m_Movement;
         private IPoint m_LastPoint = IPoint.Unavailable;
         private bool m_IsRangeViewShowing;
+        private bool m_HasAction;
 
         public int Locomotivity { get { return m_ChrConfig.Locomotivity; } }
+
+        public bool HasAction { get { return m_HasAction; } }
 
         public IPoint Point { get { return m_LastPoint; } }
 
@@ -29,6 +32,7 @@ namespace Game.Entity
                 if (m_OnMoveDone != null)
                     m_OnMoveDone(this);
             });
+            this.m_Transform.localScale = Vector3.one * this.m_ChrConfig.ScaleInMap;
         }
 
         public override int GetInCellState()
@@ -36,9 +40,9 @@ namespace Game.Entity
             return GlobalDefines.CELL_STATE_CHAR;
         }
 
-        public bool SetCellPos(IPoint point, bool dontUpdateTransformation = false)
+        public bool SetCellPos(IPoint point, bool dontUpdateTransformation = false, bool dontCheckCellState = false)
         {
-            if (!SLG.SLGGame.Instance.MAP_CanCharacterMoveOn(point))
+            if (!SLG.SLGGame.Instance.MAP_CanCharacterMoveOn(point) && !dontCheckCellState)
             {
                 Debug.LogError("the character can't be standed on this point:" + point.ToString());
                 return false;
@@ -94,6 +98,7 @@ namespace Game.Entity
         // 沿着路径移动
         public void MoveAlongPath(IPoint[] path)
         {
+            ClearCurCellState();
             if (SetCellPos(path[path.Length - 1], true))
             {
                 Vector3[] vecList = new Vector3[path.Length];
@@ -117,6 +122,24 @@ namespace Game.Entity
         public void SetOnMoveDoneDelegate(System.Action<Character> onMoveDone)
         {
             m_OnMoveDone = onMoveDone;
+        }
+
+        // 刷新行动
+        public void RefreshAction()
+        {
+            this.m_HasAction = true;
+        }
+
+        // 结束行动
+        public void Done()
+        {
+            this.m_HasAction = false;
+        }
+
+        // 清除当前所在格子的状态
+        public void ClearCurCellState()
+        {
+            SLG.SLGGame.Instance.MAP_RemoveActorAtPoint(this, Point);
         }
     }
 }
