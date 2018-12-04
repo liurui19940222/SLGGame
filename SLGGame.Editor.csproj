@@ -143,14 +143,21 @@
       <Project>{A5676B19-0719-C01F-B0BC-F0D7882B37FD}</Project>
       <Name>SLGGame</Name>
     </ProjectReference>
+    <ProjectReference Include="SLGGame.unityproj">
+      <Project>{A5676B19-0719-C01F-B0BC-F0D7882B37FD}</Project>
+      <Name>SLGGame</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\AStar\AStarEditor.cs" />
     <Compile Include="Assets\Editor\AStar\MapEditor.cs" />
+    <Compile Include="Assets\Editor\EditorTools.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\RawRes\Shader\Color.shader" />
+    <None Include="Assets\RawRes\Shader\GridEnv.shader" />
     <None Include="Assets\RawRes\Shader\GridLine.shader" />
+    <None Include="Assets\RawRes\Shader\Role.shader" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween.XML" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween43.xml" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween46.xml" />

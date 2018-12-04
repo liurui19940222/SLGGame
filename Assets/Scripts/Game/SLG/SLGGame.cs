@@ -29,7 +29,6 @@ namespace Game.SLG
 
             m_TurnAgent = new TurnAgent();
             m_TurnAgent.Cursor = new GameCursor(m_RootTf);
-            m_TurnAgent.Cursor_SetCellPos(new IPoint(11, 10));
 
             m_MapSystem = GameManager.Instance.CreateSystem<SLGMapSystem>(m_MapData);
 
@@ -45,10 +44,13 @@ namespace Game.SLG
             m_TurnAgent.TurnSystem = m_TurnSystem;
 
             Character ch = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 1);
-            ch.SetCellPos(new IPoint(11, 10));
+            ch.SetCellPos(new IPoint(12, 2));
 
             Character ch2 = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 2);
-            ch2.SetCellPos(new IPoint(9, 10));
+            ch2.SetCellPos(new IPoint(14, 2));
+
+            m_TurnAgent.Cursor_SetCellPos(ch.Point);
+            m_TurnAgent.WorldCamera_FollowCellPos(ch.Point);
 
             GameManager.Instance.UIMgr.OpenUI<GameHud>();
 

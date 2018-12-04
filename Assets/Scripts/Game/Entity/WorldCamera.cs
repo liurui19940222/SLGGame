@@ -43,20 +43,20 @@ namespace Game.Entity
         {
             float range_x = m_Camera.orthographicSize * m_Camera.aspect;
             float range_y = m_Camera.orthographicSize;
-            float xMin = worldPos.x - range_x - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE;
-            float xMax = worldPos.x + range_x + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE;
-            float yMin = worldPos.z - range_y - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE;
-            float yMax = worldPos.z + range_y + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE;
+            float xMin = worldPos.x - range_x - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_LEFT;
+            float xMax = worldPos.x + range_x + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_RIGHT;
+            float yMin = worldPos.z - range_y - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_BOTTOM;
+            float yMax = worldPos.z + range_y + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_TOP;
 
             if (xMin < m_MaxMapRect.xMin)
-                worldPos.x = m_MaxMapRect.xMin - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE + range_x;
+                worldPos.x = m_MaxMapRect.xMin - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_LEFT + range_x;
             else if (xMax > m_MaxMapRect.xMax)
-                worldPos.x = m_MaxMapRect.xMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE - range_x;
+                worldPos.x = m_MaxMapRect.xMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_RIGHT - range_x;
 
             if (yMin < m_MaxMapRect.yMin)
-                worldPos.z = m_MaxMapRect.yMin - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE + range_y;
+                worldPos.z = m_MaxMapRect.yMin - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_BOTTOM + range_y;
             else if (yMax > m_MaxMapRect.yMax)
-                worldPos.z = m_MaxMapRect.yMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE - range_y;
+                worldPos.z = m_MaxMapRect.yMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_TOP - range_y;
 
             worldPos.z += GlobalDefines.WORLD_CAMERA_Z_OFFSET;
             worldPos.y = GlobalDefines.WORLD_CAMERA_Y;

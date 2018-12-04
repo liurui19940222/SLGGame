@@ -61,6 +61,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MeshBaker\Examples\BakeTexturesAtRuntime\BakeTexturesAtRuntime.cs" />
+    <Compile Include="Assets\MeshBaker\Examples\BatchPrepareObjectsForDynamicBatching\MB_BatchPrepareObjectsForDynamicBatchingDescription.cs" />
+    <Compile Include="Assets\MeshBaker\Examples\PrepareObjectsForDynamicBatching\MB_PrepareObjectsForDynamicBatchingDescription.cs" />
+    <Compile Include="Assets\MeshBaker\Examples\SceneDynamicAddDelete\MB_DynamicAddDeleteExample.cs" />
+    <Compile Include="Assets\MeshBaker\Examples\SceneRuntimeExample\MB_Example.cs" />
+    <Compile Include="Assets\MeshBaker\Examples\SceneRuntimeExample\MB_ExampleMover.cs" />
+    <Compile Include="Assets\MeshBaker\Examples\SceneRuntimeExample\MB_ExampleSkinnedMeshDescription.cs" />
+    <Compile Include="Assets\MeshBaker\Examples\SkinnedMeshRenderer\MB_SkinnedMeshSceneController.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\_testing\MB2_TestShowHide.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\_testing\MB2_TestUpdate.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB_Utility.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB2_Core.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB2_Log.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB2_MBVersion.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB2_TexturePacker.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB3_MeshCombiner.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB3_MeshCombinerSimple.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB3_MultiMeshCombiner.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\core\MB3_TextureCombiner.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB2_TextureBakeResults.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB2_UpdateSkinnedMeshBoundsFromBones.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB2_UpdateSkinnedMeshBoundsFromBounds.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB3_DisableHiddenAnimations.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB3_MBVersionConcrete.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB3_MeshBaker.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB3_MeshBakerCommon.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB3_MeshBakerGrouper.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB3_MeshBakerRoot.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB3_MultiMeshBaker.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\MB3_TextureBaker.cs" />
     <Compile Include="Assets\Scripts\Framework\AStar\AStar.cs" />
     <Compile Include="Assets\Scripts\Framework\AStar\GridCustom.cs" />
     <Compile Include="Assets\Scripts\Framework\AStar\GridMap2D.cs" />
@@ -121,10 +151,12 @@
     <Compile Include="Assets\Test\Test.cs" />
     <None Include="Assets\RawRes\Shader\Role.shader" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween43.xml" />
+    <None Include="Assets\MeshBaker\Release Notes.txt" />
     <None Include="Assets\RawRes\Shader\GridEnv.shader" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\readme.txt" />
     <None Include="Assets\RawRes\Shader\GridLine.shader" />
     <None Include="Assets\RawRes\Shader\Color.shader" />
+    <None Include="Assets\MeshBaker\README.txt" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween46.xml" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween50.xml" />
     <Reference Include="UnityEditor.StandardEvents">

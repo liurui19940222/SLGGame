@@ -6,7 +6,7 @@ namespace Game.Common
 {
     public class GlobalDefines
     {
-        private const float PerLayerOffset = 0.002f;
+        private const float PerLayerOffset = 0.005f;
 
         // 范围格子的Y坐标分量值
         public const float RANGE_CELL_Y = PerLayerOffset;
@@ -42,7 +42,10 @@ namespace Game.Common
         public const float WORLD_CAMERA_SIZE = 6.0f;
 
         // 世界相机能够超出网格最大范围的部分
-        public const float WORLD_CAMERA_MAX_OUTOF_RANGE = 0.5f;
+        public const float WORLD_CAMERA_MAX_OUTOF_RANGE_LEFT = 1.5f;
+        public const float WORLD_CAMERA_MAX_OUTOF_RANGE_RIGHT = 1.5f;
+        public const float WORLD_CAMERA_MAX_OUTOF_RANGE_TOP = 0.0f;
+        public const float WORLD_CAMERA_MAX_OUTOF_RANGE_BOTTOM = 1.0f;
 
         // 地图单元格状态
         public const int CELL_STATE_CHAR = 1 << 0;      //角色占领

@@ -4,11 +4,11 @@
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_Gloss ("Gloss", Range(2, 128)) = 16
-		_SpecularFresnel ("SpecularFresnel", Range(0, 1)) = 0
+		_SpecularFresnel ("SpecularFresnel", Range(0, 1)) = 0.5
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" }
+		Tags { "RenderType"="Transparent" "Queue"="Transparent" "IgnoreProjector"="true" }
 		LOD 100
 
 		Pass
@@ -77,4 +77,5 @@
 			ENDCG
 		}
 	}
+	Fallback"Diffuse"
 }

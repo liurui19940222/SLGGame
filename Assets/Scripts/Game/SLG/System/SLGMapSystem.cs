@@ -45,6 +45,8 @@ namespace Game.SLG.System
         private Dictionary<int, ActionRangeView> m_RangeViewDic;
         private SLGMapCellInfo[] m_MapCells;
 
+        private Transform m_RangeCellsParent;
+
         public SLGMapCellInfo this[int x, int y]
         {
             get
@@ -73,6 +75,7 @@ namespace Game.SLG.System
             {
                 m_MapCells[i] = new SLGMapCellInfo();
             }
+            m_RangeCellsParent = new GameObject("range").transform;
         }
 
         public override void OnUpdate()
@@ -180,7 +183,7 @@ namespace Game.SLG.System
                     }
                 }
             }
-            view.Create(rangeData, null);
+            view.Create(rangeData, m_RangeCellsParent);
         }
 
         // 关闭角色范围显示

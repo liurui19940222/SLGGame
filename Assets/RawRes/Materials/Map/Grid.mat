@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Grid
-  m_Shader: {fileID: 4800000, guid: ddfdf48b8bf62374db3ddef0736bd4c3, type: 3}
+  m_Shader: {fileID: 4800000, guid: 70147c1c25f30dd42ad803df117a85bc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -40,7 +40,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 91d4118c5d6d38c4088f13b82182daa4, type: 3}
-        m_Scale: {x: 30, y: 30}
+        m_Scale: {x: 30, y: 20}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -55,6 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Alpha: 0.451
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

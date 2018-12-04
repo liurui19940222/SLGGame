@@ -140,21 +140,27 @@
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGCharacterSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGMapSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGTurnSystem.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGOppositeTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGPlayerTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGTransitionTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGTurn.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\TurnAgent.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Turn\TurnDefines.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\WorldMessage.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\BaseScene.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\FightingScene.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\SceneDefines.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\StartScene.cs" />
-    <Compile Include="Assets\Scripts\Game\UI\GameHud.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\GameHud\GameHud.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\GameHud\GameHudTurn.cs" />
     <Compile Include="Assets\Scripts\Game\UI\UIDefines.cs" />
     <Compile Include="Assets\Test\Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\RawRes\Shader\Color.shader" />
+    <None Include="Assets\RawRes\Shader\GridEnv.shader" />
     <None Include="Assets\RawRes\Shader\GridLine.shader" />
+    <None Include="Assets\RawRes\Shader\Role.shader" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween.XML" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween43.xml" />
     <None Include="Assets\Scripts\Framework\Common\DOTween\DOTween46.xml" />

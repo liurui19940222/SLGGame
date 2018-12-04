@@ -61,9 +61,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\AssetBundleAnalyzer.cs" />
     <Compile Include="Assets\Editor\AStar\AStarEditor.cs" />
     <Compile Include="Assets\Editor\AStar\MapEditor.cs" />
+    <Compile Include="Assets\Editor\EditorTools.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB_EditorUtil.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_BakeInPlace.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_DisableHiddenAnimationsEditor.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_MBVersionConcreteEditor.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_MBVersionEditor.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_MeshBakerEditor.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_MeshBakerEditorFunctions.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_MeshBakerEditorInternal.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_MeshBakerEditorWindow.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_MeshBakerGrouperEditor.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_MultiMeshBakerEditor.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_TextureBakerEditor.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_TextureBakerEditorInternal.cs" />
+    <Compile Include="Assets\MeshBaker\scripts\Editor\MB3_TextureCombinerEditorFunctions.cs" />
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>D:/我的文档/GitHub/SLGGame/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/我的文档/GitHub/SLGGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

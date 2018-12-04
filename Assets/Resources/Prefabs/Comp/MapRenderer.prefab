@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4311271708515976}
   - component: {fileID: 33775988404120066}
   - component: {fileID: 23135899304908942}
-  - component: {fileID: 64178573521998506}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -114,20 +113,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1284098391197408}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64178573521998506
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1284098391197408}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114372573278582742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112326edbaa794340adadef5fb73d936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapData: {fileID: 0}
+  MapData: {fileID: 11400000, guid: bf395321ecaf5e04b9c89dd094c71a6b, type: 2}

@@ -3,6 +3,7 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		_Alpha ("Alpha", Range(0, 1)) = 1
 	}
 	SubShader
 	{
@@ -12,7 +13,7 @@
 		Pass
 		{
 			Blend SrcAlpha OneMinusSrcAlpha
-			ZTest On
+			ZTest Off
 			ZWrite Off
 			CGPROGRAM
 			#pragma vertex vert
@@ -44,10 +45,13 @@
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				return o;
 			}
+
+			float _Alpha;
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
 				fixed4 col = tex2D(_MainTex, i.uv);
+				col.a *= _Alpha;
 				return col;
 			}
 			ENDCG
