@@ -6,6 +6,7 @@ using Framework.Common.Message;
 using Game.Common;
 using UnityEngine;
 using Game.Component;
+using UnityEngine.SceneManagement;
 
 namespace Game.Scene
 {
@@ -25,10 +26,12 @@ namespace Game.Scene
             {
                 yield break;
             }
-            m_MapRes = GameManager.Instance.ResLoader.LoadMapAsset(msg.TargetMapName);
-            m_MapRes.transform.SetParent(GetRootTf());
+            yield return SceneManager.LoadSceneAsync(msg.TargetLevelName);
+
+            var mapRoot = GameObject.FindWithTag(GameTag.MapRoot);
+            m_MapRes = mapRoot.GetComponent<MapRes>();
             m_MapRenderer = GameManager.Instance.ResLoader.LoadToolComponent<MapRenderer>("MapRenderer");
-            m_MapRenderer.InitWithMapData(m_MapRes.MapData);
+            m_MapRenderer.InitWithMapData(m_MapRes.mapData);
             m_MapRenderer.EnableGridDrawing();
             m_MapRenderer.transform.SetParent(GetRootTf());
         }
@@ -40,7 +43,7 @@ namespace Game.Scene
 
         protected override void OnSceneInitialized()
         {
-            SLG.SLGGame.Instance.Load(m_MapRes.MapData, GetRootTf());
+            SLG.SLGGame.Instance.Load(m_MapRes.mapData, GetRootTf());
             Debug.Log("Fighting Scene OnSceneInitialized");
             
         }

@@ -14,7 +14,7 @@
 		{
 			Blend SrcAlpha OneMinusSrcAlpha
 			ZTest Off
-			ZWrite Off
+			// ZWrite Off
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag

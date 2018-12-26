@@ -17,10 +17,13 @@ public class MapEditor : Editor
     static Vector2 m_to;
     static List<IPoint> m_path;
 
+    static bool m_showing = false;
+
     public override void OnInspectorGUI()
     {
         map = serializedObject.targetObject as GridMap2D;
         map.m_GridCustom = EditorGUILayout.ObjectField("自定义网格类型", map.m_GridCustom, typeof(GridCustom), true) as GridCustom;
+        map.m_level = EditorGUILayout.TextField("关卡场景名", map.m_level);
         map.m_rowCount = EditorGUILayout.IntField("行数", map.m_rowCount);
         map.m_colCount = EditorGUILayout.IntField("列数", map.m_colCount);
         map.m_cellWidth = EditorGUILayout.FloatField("单元格宽度", map.m_cellWidth);
@@ -53,6 +56,8 @@ public class MapEditor : Editor
             EditorGUILayout.LabelField("当前选中", m_curSelectedPoint.ToString());
 
         EditorUtility.SetDirty(map);
+
+        m_showing = EditorGUILayout.Toggle("显示网格", m_showing);
     }
 
     static MapEditor()
@@ -67,7 +72,7 @@ public class MapEditor : Editor
     {
         if (map == null)
             return;
-        if (UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene().name != "MapEditor")
+        if (!m_showing)
             return;
 
         //画静态的网格

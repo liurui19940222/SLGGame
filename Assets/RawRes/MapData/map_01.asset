@@ -4,14 +4,15 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7fbda8d724ce5143acdd663f0fa54cf, type: 3}
   m_Name: map_01
   m_EditorClassIdentifier: 
-  m_offsetInWorldSapce: {x: -9.08, y: 0, z: 0}
+  m_offsetInWorldSapce: {x: 0, y: 0, z: 0}
   m_rowCount: 20
   m_colCount: 30
   m_cellWidth: 1
@@ -234,12 +235,12 @@ MonoBehaviour:
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -1269,7 +1270,7 @@ MonoBehaviour:
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -3018,3 +3019,4 @@ MonoBehaviour:
     State: 0
     Tag: 
   m_GridCustom: {fileID: 11400000, guid: bd0d1f5744e5f4d4a8fac006bd6cb1c5, type: 2}
+  m_level: Level_01

@@ -9,7 +9,12 @@ ModelImporter:
     3300000: //RootNode
     4300000: Plant03_a
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plant01
+    second: {fileID: 2100000, guid: 1edc05b983d20da42826e1ac7a3f1a12, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -43,6 +48,7 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 1
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -67,6 +73,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 2
     normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:

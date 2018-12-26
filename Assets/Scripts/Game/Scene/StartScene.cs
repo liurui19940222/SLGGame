@@ -22,7 +22,7 @@ namespace Game.Scene
         {
             Debug.Log("Start Scene OnSceneInitialized");
             FightingSceneMsg msg = new FightingSceneMsg();
-            msg.TargetMapName = "Map_01";
+            msg.TargetLevelName = "Level_01";
             GameManager.Instance.SwitchScene(SceneDefines.SCENE_FIGHTING, msg);
         }
 

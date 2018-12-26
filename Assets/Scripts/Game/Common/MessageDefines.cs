@@ -5,6 +5,6 @@ namespace Game.Common
 {
     public class FightingSceneMsg : IMessage
     {
-        public string TargetMapName;
+        public string TargetLevelName;
     }
 }

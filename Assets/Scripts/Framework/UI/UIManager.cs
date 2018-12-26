@@ -32,6 +32,7 @@ namespace Framework.UI
         {
             m_ResLoader = loader;
             m_RootGo = GameObject.Instantiate(loader.LoadAsset("Prefabs/UI/", "UIRoot")) as GameObject;
+            GameObject.DontDestroyOnLoad(m_RootGo);
             m_RootTrans = m_RootGo.transform;
             m_Camera = m_RootGo.GetComponentInChildren<Camera>();
             m_Canvas = m_RootGo.GetComponentInChildren<Canvas>();

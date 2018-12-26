@@ -29,6 +29,7 @@ namespace Game.Scene
             m_HasLoaded = false;
             m_RootGo = new GameObject(GetName());
             m_RootTf = m_RootGo.transform;
+            GameObject.DontDestroyOnLoad(m_RootGo);
             m_CurCoroutine = GlobalMono.Instance.StartCoroutine(Initialize(param));
         }
 

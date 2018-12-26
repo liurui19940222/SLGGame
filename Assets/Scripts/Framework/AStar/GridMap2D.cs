@@ -34,6 +34,8 @@ namespace Framework.AStar
 
         public GridCustom m_GridCustom;
 
+        public string m_level;
+
         private AStar m_astar;
 
         public delegate bool DelStateCanMove(int x, int y);

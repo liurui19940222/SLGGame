@@ -5,6 +5,8 @@ namespace Game.Component
 {
     public class MapRes : MonoBehaviour
     {
-        public GridMap2D MapData;
+        public GridMap2D mapData;
+
+        public Terrain terrain;
     }
 }

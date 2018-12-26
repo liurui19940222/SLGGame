@@ -17,7 +17,7 @@ namespace Game.Component
         private void Awake()
         {
             m_Grid = transform.Find("Grid");
-            m_GridMat = m_Grid.GetComponent<MeshRenderer>().sharedMaterial;   
+            m_GridMat = m_Grid.GetComponent<MeshRenderer>().sharedMaterial; 
         }
 
         public void InitWithMapData(GridMap2D MapData)
@@ -42,6 +42,7 @@ namespace Game.Component
         [ContextMenu("EnableDrawing")]
         void Editor_Enable()
         {
+            Awake();
             InitWithMapData(MapData);
         }
 

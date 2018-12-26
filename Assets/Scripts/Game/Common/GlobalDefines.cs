@@ -68,4 +68,10 @@ namespace Game.Common
         Opposite,
     }
 
+    public class GameTag
+    {
+        public const string UIManager = "UIManager";
+        public const string MapRoot = "MapRoot";
+    }
+
 }
