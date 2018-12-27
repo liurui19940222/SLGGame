@@ -23,12 +23,17 @@ namespace Game
 
         private InputSystem m_InputSystem;
 
+        private bool m_IsGameRunning;
+
+        public bool IsGameRunning { get { return m_IsGameRunning; } }
+
         public UIManager UIMgr { get { return m_UIManager; } }
 
         public ResourceLoader ResLoader { get { return m_ResLoader; } }
 
         public void Launch()
         {
+            m_IsGameRunning = true;
             m_ResLoader = new ResourceLoader();
             m_UIManager = CreateSystem<UIManager>();
             m_InputSystem = InputSystem.Instance;
@@ -50,6 +55,7 @@ namespace Game
 
         public void Quit()
         {
+            m_IsGameRunning = false;
             m_SceneFSM.Quit();
             m_UIManager.OnUninitialize();
         }

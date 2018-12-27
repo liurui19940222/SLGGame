@@ -12,7 +12,7 @@ namespace Game.Entity
         private Camera m_Camera;
         private Movement m_Movement;
         private GridMap2D m_Map;
-        private Rect m_MaxMapRect;
+        private Rect m_PosRect;
 
         public WorldCamera(Transform trans) : base(trans)
         {
@@ -21,7 +21,7 @@ namespace Game.Entity
             m_Transform.eulerAngles = GlobalDefines.WORLD_CAMERA_EULER;
             m_Camera.orthographicSize = GlobalDefines.WORLD_CAMERA_SIZE;
             m_Map = SLG.SLGGame.Instance.MapData;
-            m_MaxMapRect = m_Map.GetWorldSpaceRect();
+            ComputeRange();
         }
 
         public void LookAtCellPos(IPoint point)
@@ -41,26 +41,23 @@ namespace Game.Entity
 
         public Vector3 LimitWorldPos(Vector3 worldPos)
         {
-            float range_x = m_Camera.orthographicSize * m_Camera.aspect;
-            float range_y = m_Camera.orthographicSize;
-            float xMin = worldPos.x - range_x - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_LEFT;
-            float xMax = worldPos.x + range_x + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_RIGHT;
-            float yMin = worldPos.z - range_y - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_BOTTOM;
-            float yMax = worldPos.z + range_y + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_TOP;
-
-            if (xMin < m_MaxMapRect.xMin)
-                worldPos.x = m_MaxMapRect.xMin - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_LEFT + range_x;
-            else if (xMax > m_MaxMapRect.xMax)
-                worldPos.x = m_MaxMapRect.xMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_RIGHT - range_x;
-
-            if (yMin < m_MaxMapRect.yMin)
-                worldPos.z = m_MaxMapRect.yMin - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_BOTTOM + range_y;
-            else if (yMax > m_MaxMapRect.yMax)
-                worldPos.z = m_MaxMapRect.yMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_TOP - range_y;
+            worldPos.x = Mathf.Clamp(worldPos.x, m_PosRect.xMin, m_PosRect.xMax);
+            worldPos.z = Mathf.Clamp(worldPos.z, m_PosRect.yMin, m_PosRect.yMax);
 
             worldPos.z += GlobalDefines.WORLD_CAMERA_Z_OFFSET;
             worldPos.y = GlobalDefines.WORLD_CAMERA_Y;
             return worldPos;
+        }
+
+        private void ComputeRange()
+        {
+            Rect maxMapRect = m_Map.GetWorldSpaceRect();
+            float range_x = m_Camera.orthographicSize * m_Camera.aspect;
+            float range_y = m_Camera.orthographicSize;
+            m_PosRect.xMin = maxMapRect.xMin - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_LEFT + range_x;
+            m_PosRect.xMax = maxMapRect.xMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_RIGHT - range_x;
+            m_PosRect.yMin = maxMapRect.yMin - GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_BOTTOM + range_y;
+            m_PosRect.yMax = maxMapRect.yMax + GlobalDefines.WORLD_CAMERA_MAX_OUTOF_RANGE_TOP - range_y;
         }
     }
 }
