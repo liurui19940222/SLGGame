@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Game\Component\MapRes.cs" />
     <Compile Include="Assets\Scripts\Game\Component\Movement.cs" />
     <Compile Include="Assets\Scripts\Game\Config\CharacterConfig.cs" />
+    <Compile Include="Assets\Scripts\Game\Config\LevelConfig.cs" />
     <Compile Include="Assets\Scripts\Game\Data\ActionCellData.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\ActionRange.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\Character.cs" />
@@ -105,8 +106,18 @@
     <Compile Include="Assets\Scripts\Game\Scene\FightingScene.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\SceneDefines.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\StartScene.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\Action\ActionBase.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\Action\SpawnAction.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\Action\StoryAction.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\Condition\ConditionBase.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\Condition\ConditionOnEnd.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\Condition\ConditionOnSomeoneKilled.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\Condition\ConditionOnStart.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\Condition\ConditionOnTurnStart.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Level\LevelDefines.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\SLGGame.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGCharacterSystem.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\System\SLGLevelSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGMapSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGTurnSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Turn\SLGOppositeTurn.cs" />

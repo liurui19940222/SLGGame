@@ -175,27 +175,27 @@ MonoBehaviour:
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -320,37 +320,37 @@ MonoBehaviour:
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -466,6 +466,41 @@ MonoBehaviour:
   - X: 0
     Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -581,6 +616,41 @@ MonoBehaviour:
   - X: 0
     Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -696,6 +766,41 @@ MonoBehaviour:
   - X: 0
     Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -811,11 +916,51 @@ MonoBehaviour:
   - X: 0
     Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -921,6 +1066,41 @@ MonoBehaviour:
   - X: 0
     Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -1036,6 +1216,41 @@ MonoBehaviour:
   - X: 0
     Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -1151,6 +1366,41 @@ MonoBehaviour:
   - X: 0
     Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -1266,6 +1516,36 @@ MonoBehaviour:
   - X: 0
     Y: 0
     Type: 0
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
+    State: 0
+    Tag: 
+  - X: 0
+    Y: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
@@ -1395,307 +1675,27 @@ MonoBehaviour:
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0
     Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
-    State: 0
-    Tag: 
-  - X: 0
-    Y: 0
-    Type: 0
+    Type: 1
     State: 0
     Tag: 
   - X: 0

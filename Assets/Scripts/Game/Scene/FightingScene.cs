@@ -7,6 +7,7 @@ using Game.Common;
 using UnityEngine;
 using Game.Component;
 using UnityEngine.SceneManagement;
+using Game.Config;
 
 namespace Game.Scene
 {
@@ -43,7 +44,7 @@ namespace Game.Scene
 
         protected override void OnSceneInitialized()
         {
-            SLG.SLGGame.Instance.Load(m_MapRes.mapData, GetRootTf());
+            SLG.SLGGame.Instance.Load(m_MapRes, GetRootTf());
             Debug.Log("Fighting Scene OnSceneInitialized");
             
         }

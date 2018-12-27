@@ -169,7 +169,7 @@ namespace Game.SLG.System
                 {
                     p.X = x + point.X;
                     p.Y = y + point.Y;
-                    if (!m_MapData.IsAvailable(p.X, p.Y))
+                    if (!m_MapData.IsAvailable(p.X, p.Y) || m_MapData.HasType(p.X, p.Y, (int)ECellType.OBSTACLE))
                         continue;
                     cost = Mathf.Abs(x)+ Mathf.Abs(y);
                     if (cost <= locomotivity)

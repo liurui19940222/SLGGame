@@ -64,7 +64,7 @@ namespace Game.SLG.System
             
         }
 
-        public Character CreateCharacterAtPoint(ECharacterRelation relation, int id)
+        public Character CreateCharacterAtPoint(ECharacterRelation relation, int id, Framework.AStar.IPoint point)
         {
             List<Character> list = null;
             Transform parent = null;
@@ -86,6 +86,7 @@ namespace Game.SLG.System
             Character character = new Character(id, parent);
             character.GID = ++GameId;
             list.Add(character);
+            character.SetCellPos(point);
             return character;
         }
 

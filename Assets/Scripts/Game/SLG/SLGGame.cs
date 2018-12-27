@@ -4,6 +4,7 @@ using Framework.Common.Message;
 using Framework.UI;
 using Game.Data;
 using Game.Entity;
+using Game.SLG.Level;
 using Game.SLG.System;
 using Game.UI.GameHud;
 using System.Collections.Generic;
@@ -18,14 +19,20 @@ namespace Game.SLG
         private SLGCharacterSystem m_CharacterSystem;
         private SLGTurnSystem m_TurnSystem;
         private SLGMapSystem m_MapSystem;
+        private SLGLevelSystem m_LevelSystem;
         private TurnAgent m_TurnAgent;
+        private Environment m_Environment;
 
         public GridMap2D MapData { get { return m_MapData; } }
 
-        public void Load(GridMap2D mapData, Transform rootTf)
+        public Environment Environment { get { return m_Environment; } }
+
+        public void Load(Component.MapRes mapRes, Transform rootTf)
         {
             m_RootTf = rootTf;
-            m_MapData = mapData;
+            m_MapData = mapRes.mapData;
+
+            m_Environment = new Environment();
 
             m_TurnAgent = new TurnAgent();
             m_TurnAgent.Cursor = new GameCursor(m_RootTf);
@@ -40,20 +47,25 @@ namespace Game.SLG
 
             m_CharacterSystem = GameManager.Instance.CreateSystem<SLGCharacterSystem>(m_RootTf);
             m_TurnSystem = GameManager.Instance.CreateSystem<SLGTurnSystem>(m_TurnAgent);
+            m_LevelSystem = GameManager.Instance.CreateSystem<SLGLevelSystem>(mapRes.levelConfig);
 
             m_TurnAgent.TurnSystem = m_TurnSystem;
 
-            Character ch = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 1);
-            ch.SetCellPos(new IPoint(12, 2));
+            Character ch = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 1, new IPoint(12, 2));
 
-            Character ch2 = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 2);
-            ch2.SetCellPos(new IPoint(14, 2));
+            Character ch2 = CS_CreateCharacterAtPoint(ECharacterRelation.OwnSide, 2, new IPoint(14, 2));
 
             m_TurnAgent.Cursor_SetCellPos(ch.Point);
             m_TurnAgent.WorldCamera_FollowCellPos(ch.Point);
 
             GameManager.Instance.UIMgr.OpenUI<GameHud>();
 
+            Start();
+        }
+
+        public void Start()
+        {
+            MessageCenter.Instance.SendMessage(WorldMessage.ON_SLGGAME_START, null);
             m_TurnSystem.SwitchTurn(Common.ETurnType.OwnSide);
         }
 
@@ -78,9 +90,9 @@ namespace Game.SLG
 
         #region CharacterSystem Functions
 
-        public Character CS_CreateCharacterAtPoint(ECharacterRelation relation, int id)
+        public Character CS_CreateCharacterAtPoint(ECharacterRelation relation, int id, IPoint point)
         {
-            return m_CharacterSystem.CreateCharacterAtPoint(relation, id);
+            return m_CharacterSystem.CreateCharacterAtPoint(relation, id, point);
         }
 
         public void CS_RefreshActions(ECharacterRelation relation)
