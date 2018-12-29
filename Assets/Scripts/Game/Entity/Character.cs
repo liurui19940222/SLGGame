@@ -119,6 +119,12 @@ namespace Game.Entity
             m_Movement.MoveAlongPath(path, m_ChrConfig.MoveSpeed);
         }
 
+        // 设置朝向
+        public void LookAt(Direction dir)
+        {
+            m_Transform.eulerAngles = GlobalFunctions.GetEulerAnglesByDir(dir);
+        }
+
         public void SetOnMoveDoneDelegate(System.Action<Character> onMoveDone)
         {
             m_OnMoveDone = onMoveDone;

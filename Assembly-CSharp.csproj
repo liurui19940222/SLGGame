@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\Game\SLG\Level\Condition\ConditionOnTurnStart.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Level\LevelDefines.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\SLGGame.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\System\SLGBattleSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGCharacterSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGLevelSystem.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\System\SLGMapSystem.cs" />

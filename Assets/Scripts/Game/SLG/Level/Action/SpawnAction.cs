@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Game.SLG.System;
+using Game.Common;
 
 namespace Game.SLG.Level.Action
 {
@@ -12,6 +13,7 @@ namespace Game.SLG.Level.Action
         public int x;
         public int y;
         public int id;
+        public Direction direction;
     }
 
     [CreateAssetMenu(menuName = "SLGGame/Action/SpawnActionParam")]
@@ -30,7 +32,8 @@ namespace Game.SLG.Level.Action
             List<SpawnData> list = _param.list;
             for (int i = 0; i < list.Count; ++i)
             {
-                SLG.SLGGame.Instance.CS_CreateCharacterAtPoint(_param.relation, list[i].id, new Framework.AStar.IPoint(list[i].x, list[i].y));
+                Entity.Character ch = SLG.SLGGame.Instance.CS_CreateCharacterAtPoint(_param.relation, list[i].id, new Framework.AStar.IPoint(list[i].x, list[i].y));
+                ch.LookAt(list[i].direction);
             }
         }
     }

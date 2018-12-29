@@ -43,6 +43,21 @@ namespace Game.Common
             return new IPoint();
         }
 
+        // 根据方向得到欧拉角度(axis = Vector3.up)
+        public static Vector3 GetEulerAnglesByDir(Direction dir)
+        {
+            switch (dir)
+            {
+                case Direction.South:
+                    return new Vector3(0, 180, 0);
+                case Direction.West:
+                    return new Vector3(0, 270, 0);
+                case Direction.East:
+                    return new Vector3(0, 90, 0);
+            }
+            return Vector3.zero;
+        }
+
         // 根据输入得到整形向量
         public static IPoint GetPointByInputWord(EInputWord word, int step)
         {

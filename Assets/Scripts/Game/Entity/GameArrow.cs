@@ -66,15 +66,29 @@ namespace Game.Entity
 
         private ArrowPart CreatePart(int type, IPoint prevPoint, IPoint curPoint, IPoint nextPoint)
         {
+            Transform trans = null;
             ArrowPart part = null;
             if (type == 1)
-                part = new ArrowOrigin(GameObject.Instantiate(m_PartObjs[0]).transform);
+            {
+                trans = GameObject.Instantiate(m_PartObjs[0]).transform;
+                part = new ArrowOrigin(trans);
+            }
             if (type == 2)
-                part = new ArrowStraight(GameObject.Instantiate(m_PartObjs[1]).transform);
+            {
+                trans = GameObject.Instantiate(m_PartObjs[1]).transform;
+                part = new ArrowStraight(trans);
+            }
             if (type == 3)
-                part = new ArrowCorner(GameObject.Instantiate(m_PartObjs[2]).transform);
+            {
+                trans = GameObject.Instantiate(m_PartObjs[2]).transform;
+                part = new ArrowCorner(trans);
+            }
             if (type == 4)
-                part = new ArrowEnding(GameObject.Instantiate(m_PartObjs[3]).transform);
+            {
+                trans = GameObject.Instantiate(m_PartObjs[3]).transform;
+                part = new ArrowEnding(trans);
+            }
+            trans.SetParent(m_PartObjs[0].transform.parent);
             part.Show(prevPoint, curPoint, nextPoint);
             m_Parts.Add(part);
             return part;

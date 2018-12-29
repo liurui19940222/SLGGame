@@ -102,7 +102,6 @@ namespace Game.SLG.System
 
         private void OnGameStart(IMessage msg)
         {
-            Debug.Log("ONGameStart");
             foreach (LevelEvent _event in m_Config.Events)
             {
                 if (_event.condition == ECondition.OnStart)

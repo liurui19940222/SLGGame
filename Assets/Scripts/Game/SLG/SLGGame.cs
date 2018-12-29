@@ -12,6 +12,16 @@ using UnityEngine;
 
 namespace Game.SLG
 {
+    public enum SLGSystem
+    {
+        Map,
+        Character,
+        Turn,
+        Level,
+        Battle,
+        Count,
+    }
+
     public class SLGGame : Singleton<SLGGame>
     {
         private Transform m_RootTf;

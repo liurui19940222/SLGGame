@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   Events:
-  - condition: 1
-    conditionParam: {fileID: 11400000, guid: 8a16b842b9fe8494d88c8f333e3ed0f8, type: 2}
+  - condition: 0
+    conditionParam: {fileID: 0}
     action: 0
-    actionParam: {fileID: 11400000, guid: dece851fb9a17a7429aea53ff9a7f687, type: 2}
+    actionParam: {fileID: 11400000, guid: 2ae37b6fd7ecb464a8c73284e4cc222d, type: 2}
