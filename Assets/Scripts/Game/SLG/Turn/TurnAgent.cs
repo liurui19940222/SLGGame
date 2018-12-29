@@ -21,8 +21,6 @@ public class TurnAgent
 
     public WorldCamera WorldCamera { set { m_WorldCamera = value; } }
 
-    public SLGTurnSystem TurnSystem { set { m_TurnSystem = value; } }
-
     #region Cursor Functions
 
     public void Cursor_SetCellPos(IPoint point)
@@ -76,15 +74,6 @@ public class TurnAgent
     public void WorldCamera_FollowCellPos(IPoint point)
     {
         m_WorldCamera.FollowCellPos(point);
-    }
-
-    #endregion
-
-    #region TurnSystem Functions
-
-    public void Turn_SwitchTurn(Game.Common.ETurnType turn)
-    {
-        m_TurnSystem.SwitchTurn(turn);
     }
 
     #endregion

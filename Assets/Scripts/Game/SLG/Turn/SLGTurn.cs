@@ -20,7 +20,7 @@ namespace Game.SLG.Turn
         // 切换到下一势力回合
         public void SwitchToNextTurn()
         {
-            m_Agent.Turn_SwitchTurn(GetNextTurn());
+            SLGGame.Instance.Turn_SwitchTurn(GetNextTurn());
         }
 
         // 检查可行动角色数量
