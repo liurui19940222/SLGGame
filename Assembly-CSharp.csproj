@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Game\Config\CharacterConfig.cs" />
     <Compile Include="Assets\Scripts\Game\Config\LevelConfig.cs" />
     <Compile Include="Assets\Scripts\Game\Data\ActionCellData.cs" />
+    <Compile Include="Assets\Scripts\Game\Data\BattleData.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\ActionRange.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\Character.cs" />
     <Compile Include="Assets\Scripts\Game\Entity\EntityBase.cs" />
@@ -106,6 +107,8 @@
     <Compile Include="Assets\Scripts\Game\Scene\FightingScene.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\SceneDefines.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\StartScene.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Battle\GeneralBattleCalculator.cs" />
+    <Compile Include="Assets\Scripts\Game\SLG\Battle\IBattleCalculator.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Level\Action\ActionBase.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Level\Action\SpawnAction.cs" />
     <Compile Include="Assets\Scripts\Game\SLG\Level\Action\StoryAction.cs" />

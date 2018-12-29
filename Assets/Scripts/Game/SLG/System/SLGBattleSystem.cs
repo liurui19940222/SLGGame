@@ -11,6 +11,7 @@ using Game.SLG.Level;
 using Game.SLG.Level.Condition;
 using Game.SLG.Level.Action;
 using Game.Config;
+using Game.Entity;
 
 namespace Game.SLG.System
 {
@@ -24,7 +25,7 @@ namespace Game.SLG.System
 
         public override void OnInitialize(IResourceLoader loader, params object[] pars)
         {
-
+            MessageCenter.Instance.AddListener(WorldMessage.BATTLE, this.OnBattleMsg);
         }
 
         public override void OnUpdate()
@@ -34,12 +35,23 @@ namespace Game.SLG.System
 
         public override void OnUninitialize()
         {
-
+            MessageCenter.Instance.RemoveListener(WorldMessage.BATTLE, this.OnBattleMsg);
         }
 
         public override void OnInputMsg(InputMessage msg)
         {
 
+        }
+
+        private void OnBattleMsg(IMessage msg)
+        {
+            BattleMsg battleMsg = msg as BattleMsg;
+            Fight(battleMsg.attacker, battleMsg.defender);
+        }
+
+        private void Fight(Character attacker, Character defender)
+        {
+            
         }
     }
 }

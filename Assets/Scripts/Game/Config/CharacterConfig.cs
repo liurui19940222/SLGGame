@@ -4,6 +4,17 @@ using UnityEngine;
 
 namespace Game.Config
 {
+    [System.Serializable]
+    public class BattleProp
+    {
+        public int hp;      //血量
+        public int atk;     //攻击力
+        public int def;     //防御力
+        public int spd;     //速度
+        public int ski;     //技术
+        public int lck;     //幸运
+    }
+
     [CreateAssetMenu(menuName = "SLGGame/CharacterConfig")]
     public class CharacterConfig : ScriptableObject
     {
@@ -22,5 +33,7 @@ namespace Game.Config
 
         // 地图中的缩放
         public float ScaleInMap;
+
+        public BattleProp BattleData;
     }
 }

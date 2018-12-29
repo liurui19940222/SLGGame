@@ -21,6 +21,8 @@ namespace Game.Entity
 
         public IPoint Point { get { return m_LastPoint; } }
 
+        public BattleProp BattleProp { get { return m_ChrConfig.BattleData; } }
+
         private System.Action<Character> m_OnMoveDone;
 
         public Character(int id, Transform parent)

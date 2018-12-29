@@ -18,3 +18,10 @@ MonoBehaviour:
   AttackDistance: 1
   MoveSpeed: 10
   ScaleInMap: 0.4
+  BattleData:
+    hp: 18
+    atk: 5
+    def: 5
+    spd: 4
+    ski: 1
+    lck: 0
