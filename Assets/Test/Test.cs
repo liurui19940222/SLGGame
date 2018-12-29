@@ -6,29 +6,15 @@ using UnityEngine;
 
 public class Test : MonoBehaviour {
 
-    public Camera camera;
-    public LayerMask mask;
-    public float height;
 
-	// Use this for initialization
 	void Start () {
-
+        Debug.Log(IPoint.IsStraight(new IPoint(5, 6), new IPoint(5, 7), new IPoint(5, 8)));
+        Debug.Log(IPoint.IsStraight(new IPoint(5, 6), new IPoint(5, 7), new IPoint(6, 7)));
+        Debug.Log(IPoint.IsStraight(new IPoint(5, 6), new IPoint(6, 7), new IPoint(8, 8)));
     }
-	
-	// Update is called once per frame
+
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
-        {
-            var ray = camera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo, 1000, mask))
-            {
-                Vector3 p = hitInfo.barycentricCoordinate;
-                p.y += height;
-                transform.position = p;
-                transform.forward = hitInfo.normal;
-            }
-        }
+
 	}
 
     void OnRenderObject()

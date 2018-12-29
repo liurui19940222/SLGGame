@@ -246,6 +246,18 @@ namespace Framework.AStar
             return Math.Abs(b.X - a.X) + Math.Abs(b.Y - a.Y);
         }
 
+        public static bool IsStraight(params IPoint[] arr)
+        {
+            int x = 0;
+            int y = 0;
+            foreach (IPoint p in arr)
+            {
+                x += p.X;
+                y += p.Y;
+            }
+            return !(x != arr[0].X * arr.Length && y != arr[0].Y * arr.Length);
+        }
+
         public static readonly IPoint Unavailable = new IPoint(0x7FFFFFFF, 0x7FFFFFFF);
     }
 }
